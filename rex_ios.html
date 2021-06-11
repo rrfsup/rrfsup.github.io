@@ -405,7 +405,7 @@
 						<input id="invoiceNumberStatic" type="text" class="textInput" value="30-" style="text-align: right;color:#00f;" maxlength="3" size="3" disabled>
 					</div>
 					<div style="display:flex;flex-direction:column;padding:1px;">
-						<input id="invoiceNumberInput" type="number" class="textInput" style="color:#f00;" data-maxlength="6"oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+						<input id="invoiceNumberInput" type="tel" class="textInput" style="color:#f00;" data-maxlength="6"oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
 					</div>
 				</div>
 			</div>
@@ -419,7 +419,7 @@
 				Service Technician Number
 			</div>
 			<div id="invoiceTechNumberInputId" class="textInputDiv">
-				<input id="invoiceTechNumberInput" type="number" class="textInput" data-maxlength="4" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+				<input id="invoiceTechNumberInput" type="tel" class="textInput" data-maxlength="4" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
 			</div>
 			<div id="invoiceTypeOfWorkLabelId" class="labelDiv">
 				<hr>
@@ -428,42 +428,42 @@
 			<div id="invoiceTypeOfWorkInputId" class="labelDiv">
 				<div style="display:flex;flex-direction:row;justify-content: space-around;">
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceTypeOfWorkSewerLabel" for="invoiceTypeOfWorkSewerInput" style="vertical-algin:middle">
-				<input id="invoiceTypeOfWorkSewerInput" type="checkbox" style="vertical-algin:middle">
-					Sewer &amp; Drain
-				</label>
+						<label id="invoiceTypeOfWorkSewerLabel" for="invoiceTypeOfWorkSewerInput">
+							<input id="invoiceTypeOfWorkSewerInput" type="checkbox">
+							Sewer &amp; Drain
+						</label>
 					</div>
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceTypeOfWorkPlumbingLabel" for="invoiceTypeOfWorkPlumbingInput" style="vertical-algin:middle">
-				<input id="invoiceTypeOfWorkPlumbingInput" type="checkbox" style="vertical-align:middle">
-					Plumbing
-				</label>
+						<label id="invoiceTypeOfWorkPlumbingLabel" for="invoiceTypeOfWorkPlumbingInput">
+							<input id="invoiceTypeOfWorkPlumbingInput" type="checkbox">
+							Plumbing
+						</label>
 					</div>
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceTypeOfWorkPumpingLabel" for="invoiceTypeOfWorkPumpingInput" style="vertical-algin:middle">
-				<input id="invoiceTypeOfWorkPumpingInput" type="checkbox" style="vertical-align:middle">
-					Pumping
-				</label>
+						<label id="invoiceTypeOfWorkPumpingLabel" for="invoiceTypeOfWorkPumpingInput">
+							<input id="invoiceTypeOfWorkPumpingInput" type="checkbox">
+							Pumping
+						</label>
 					</div>
 				</div>
 				<div style="display:flex;flex-direction:row;justify-content: space-around;">
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceTypeOfWorkIndustrialLabel" for="invoiceTypeOfWorkIndustrialInput" style="vertical-algin:middle">
-				<input id="invoiceTypeOfWorkIndustrialInput" type="checkbox" style="vertical-algin:middle">
-					Industrial
-				</label>
+						<label id="invoiceTypeOfWorkIndustrialLabel" for="invoiceTypeOfWorkIndustrialInput">
+							<input id="invoiceTypeOfWorkIndustrialInput" type="checkbox">
+							Industrial
+						</label>
 					</div>
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceTypeOfWorkExcavationLabel" for="invoiceTypeOfWorkExcavationInput" style="vertical-algin:middle">
-				<input id="invoiceTypeOfWorkExcavationInput" type="checkbox" style="vertical-algin:middle">
-					Excavation
-				</label>
+						<label id="invoiceTypeOfWorkExcavationLabel" for="invoiceTypeOfWorkExcavationInput">
+							<input id="invoiceTypeOfWorkExcavationInput" type="checkbox">
+							Excavation
+						</label>
 					</div>
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceTypeOfWorkDrainTileLabel" for="invoiceTypeOfWorkDrainTileInput" style="vertical-algin:middle">
-				<input id="invoiceTypeOfWorkDrainTileInput" type="checkbox" style="vertical-align:middle">
-					Drain Tile
-				</label>
+						<label id="invoiceTypeOfWorkDrainTileLabel" for="invoiceTypeOfWorkDrainTileInput">
+							<input id="invoiceTypeOfWorkDrainTileInput" type="checkbox">
+							Drain Tile
+						</label>
 					</div>
 				</div>
 			</div>
@@ -474,16 +474,16 @@
 			<div id="invoiceCustomerClassInputId" class="labelDiv">
 				<div style="display:flex;flex-direction:row;justify-content: space-around;">
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceCustomerClassResidentialLabel" for="invoiceCustomerClassResidentialInput" style="vertical-algin:middle">
-				<input id="invoiceCustomerClassResidentialInput" type="checkbox" style="vertical-algin:middle">
-					Residential
-				</label>
+						<label id="invoiceCustomerClassResidentialLabel" for="invoiceCustomerClassResidentialInput">
+							<input id="invoiceCustomerClassResidentialInput" type="checkbox">
+							Residential
+						</label>
 					</div>
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
-				<label id="invoiceCustomerClassCommercialLabel" for="invoiceCustomerClassCommercialInput" style="vertical-algin:middle">
-				<input id="invoiceCustomerClassCommercialInput" type="checkbox" style="vertical-align:middle">
-					Commercial
-				</label>
+						<label id="invoiceCustomerClassCommercialLabel" for="invoiceCustomerClassCommercialInput">
+							<input id="invoiceCustomerClassCommercialInput" type="checkbox">
+							Commercial
+						</label>
 					</div>
 					<div style="display:flex;flex-direction:column;width:33%;padding:1px;">
 					</div>
@@ -525,7 +525,7 @@
 				ZIP
 			</div>
 			<div id="submitZipInputId" class="numberInputDiv">
-				<input id="submitZipInput" type="number" class="numberInput">
+				<input id="submitZipInput" type="tel" class="numberInput">
 			</div>
 			<div id="submitTelephoneNumberLabelId" class="labelDiv">
 				Telephone Number
@@ -575,7 +575,7 @@
 				ZIP
 			</div>
 			<div id="workAtZipInputId" class="textInputDiv">
-				<input id="workAtZipInput" type="number" class="numberInput">
+				<input id="workAtZipInput" type="tel" class="numberInput">
 			</div>
 			<div id="workAtTelephoneNumberLabelId" class="labelDiv">
 				Telephone Number
