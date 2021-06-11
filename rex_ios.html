@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html  lang="en-US">
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset='UTF-8'>
+<style>
+@page 
+{
+	size: 8.5in 11in portrait;  /* width height orientation */
+}
+
+@media print
+{
+
+	body {
+		font:10px Courier New, monospace;
+		margin: 0mm;
+	}
+
+	.noPrint, *.noPrint { 
+		display: none !important;
+	}
+
+	.parentDiv {
+		position: unset;
+	}
+
+	.sectionDiv {
+		position: unset;
+	}
+
+	.headerDiv {
+		display: none !important;
+	}
+
+	.contentDiv {
+		position: unset;
+	}
+
+	.labelDiv {
+		display: none !important;
+	}
+
+	.textInputDiv {
+		font: 10px Courier New, monospace;
+	}
+
+	/*
+	 * Proposal Submitted To Input Print Alignment
+	 */
+	#submitNameInputId {
+		position: absolute;
+		top: 36mm;
+		left: 32mm;
+	}
+
+	#submitStreetInputId {
+		position: absolute;
+		top: 40mm;
+		left: 32mm;
+	}
+
+	#submitCityInputId {
+		position: absolute;
+		top: 44mm;
+		left: 32mm;
+	}
+
+	#submitStateInputId {
+		position: absolute;
+		top: 48mm;
+		left: 32mm;
+	}
+
+	#submitZipInputId {
+		position: absolute;
+		top: 48mm;
+		left: 88mm;
+	}
+
+	#submitTelephoneNumberInputId {
+		position: absolute;
+		top: 52mm;
+		left: 47mm;
+	}
+
+	/*
+	 * Work To Be Performed At Input Print Alignment
+	 */
+	#workAtNameInputId {
+		position: absolute;
+		top: 36mm;
+		left: 118mm;
+	}
+
+	#workAtStreetInputId {
+		position: absolute;
+		top: 40mm;
+		left: 118mm;
+	}
+
+	#workAtCityInputId {
+		position: absolute;
+		top: 44mm;
+		left: 118mm;
+	}
+
+	#workAtStateInputId {
+		position: absolute;
+		top: 48mm;
+		left: 118mm;
+	}
+
+	#workAtZipInputId {
+		position: absolute;
+		top: 48mm;
+		left: 169mm;
+	}
+
+	#workAtTelephoneNumberInputId {
+		position: absolute;
+		top: 52mm;
+		left: 133mm;
+	}
+	
+
+	/*
+	 * Input Field Print Styles
+	 */
+	.textInput {
+		border: none;
+		box-shadow: none;
+		vertical-align: middle;
+		font: 10pt Courier New, monospace;
+		font-weight: bold;
+	}
+
+	.numberInput {
+		border: none;
+		box-shadow: none;
+		vertical-align: middle;
+		font: 10pt Courier New, monospace;
+		font-weight: bold;
+	}
+
+	.telInput {
+		border: none;
+		box-shadow: none;
+		vertical-align: middle;
+		font: 10pt Courier New, monospace;
+		font-weight: bold;
+	}
+}
+
+	.parentDiv {
+		margin: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	.sectionDiv {
+		align: center;
+		text-align: center;
+		width: 100%;
+	}
+
+	.headerDiv {
+		text-align: left;
+		background: #eee;
+		margin-top: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 10pt;
+		font-weight: bold;
+		width:100%;
+	}
+
+	.headerSpan {
+		margin-left: 10px;
+	}
+		
+
+	.contentDiv {
+		padding-top: 5px;
+		text-align: center;
+		width: 100%;
+	}
+
+	.labelDiv {
+		margin-left: 10px;
+		text-align: left;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 11pt;
+	}
+
+	.textInputDiv {
+		text-align: left;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 95%;
+	}
+
+	.numberInputDiv {
+		text-align: left;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 95%;
+	}
+
+	.telInputDiv {
+		text-align: left;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 95%;
+	}
+
+	.textInput {
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 13pt;
+		width: 100%;
+	}
+
+	.numberInput {
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 13pt;
+		width: 100%;
+	}
+
+	.telInput {
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 13pt;
+		width: 100%;
+	}
+
+	#submitHeaderId {
+		color: #fff;
+		background: #aaa;
+	}
+
+	#workAtHeaderId {
+		color: #fff;
+		background: #aaa;
+	}
+
+	#submitContentId {
+		background: #eee;
+		padding-bottom: 10px;
+	}
+
+	#workAtContentId {
+		background: #eee;
+		padding-bottom: 10px;
+	}
+
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+
+</style>
+</head>
+<body>
+<div id="parentId" class="parentDiv">
+	<div id="submitId" class="sectionDiv">
+		<div id="submitHeaderId" class="headerDiv">
+			<span class="headerSpan">Proposal Submitted To</span>
+		</div>
+		<div id="submitContentId" class="contentDiv">
+			<div id="submitNameLabelId" class="labelDiv">
+				Name
+			</div>
+			<div id="submitNameInputId" class="textInputDiv">
+				<input id="submitNameInput" type="text" class="textInput">
+			</div>
+			<div id="submitStreetLabelId" class="labelDiv">
+				Street
+			</div>
+			<div id="submitStreetInputId" class="textInputDiv">
+				<input id="submitStreetInput" type="text" class="textInput">
+			</div>
+			<div id="submitCityLabelId" class="labelDiv">
+				City
+			</div>
+			<div id="submitCityInputId" class="textInputDiv">
+				<input id="submitCityInput" type="text" class="textInput">
+			</div>
+			<div id="submitStateLabelId" class="labelDiv">
+				State
+			</div>
+			<div id="submitStateInputId" class="textInputDiv">
+				<input id="submitStateInput" type="text" class="textInput">
+			</div>
+			<div id="submitZipLabelId" class="labelDiv">
+				ZIP
+			</div>
+			<div id="submitZipInputId" class="numberInputDiv">
+				<input id="submitZipInput" type="number" class="numberInput">
+			</div>
+			<div id="submitTelephoneNumberLabelId" class="labelDiv">
+				Telephone Number
+			</div>
+			<div id="submitTelephoneNumberInputId" class="telInputDiv">
+				<input id="submitTelephoneNumberInput" type="tel" class="telInput">
+			</div>
+		</div>
+	</div>
+	<div id="workAtId" class="sectionDiv">
+		<div id="workAtHeaderId" class="headerDiv">
+			<span class="headerSpan">Work To Be Performed At</span>
+		</div>
+		<div id="workAtContentId" class="contentDiv">
+			<div id="workAtNameLabelId" class="labelDiv">
+				Name
+			</div>
+			<div id="workAtNameInputId" class="textInputDiv">
+				<input id="workAtNameInput" type="text" class="textInput">
+			</div>
+			<div id="workAtStreetLabelId" class="labelDiv">
+				Street
+			</div>
+			<div id="workAtStreetInputId" class="textInputDiv">
+				<input id="workAtStreetInput" type="text" class="textInput">
+			</div>
+			<div id="workAtCityLabelId" class="labelDiv">
+				City
+			</div>
+			<div id="workAtCityInputId" class="textInputDiv">
+				<input id="workAtCityInput" type="text" class="textInput">
+			</div>
+			<div id="workAtStateLabelId" class="labelDiv">
+				State
+			</div>
+			<div id="workAtStateInputId" class="textInputDiv">
+				<input id="workAtStateInput" type="text" class="textInput">
+			</div>
+			<div id="workAtZipLabelId" class="labelDiv">
+				ZIP
+			</div>
+			<div id="workAtZipInputId" class="textInputDiv">
+				<input id="workAtZipInput" type="number" class="numberInput">
+			</div>
+			<div id="workAtTelephoneNumberLabelId" class="labelDiv">
+				Telephone Number
+			</div>
+			<div id="workAtTelephoneNumberInputId" class="telInputDiv">
+				<input id="workAtTelephoneNumberInput" type="tel" class="telInput">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
