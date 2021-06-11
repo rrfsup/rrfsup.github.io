@@ -184,6 +184,12 @@
 		text-align: center;
 	}
 
+	.descriptionDiv {
+		text-align: left;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 7pt;
+	}
+
 	.labelDiv {
 		text-align: left;
 		font-family: -apple-system, Helvetica, sans-serif;
@@ -279,10 +285,67 @@
 		-moz-appearance: textfield;
 	}
 
+	input[type="file"] {
+		display: none;
+	}
+
+	input[type="button"] {
+		display: none;
+	}
+
+	.customFileUpload {
+		display: block;
+		box-sizing: border-box;
+		padding: 6px 12px;
+		cursor: pointer;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 10pt;
+		background: rgb(0, 122,255);
+		color: #fff;
+	}
+
 </style>
 </head>
 <body>
+<script>
+	function displayFileName()
+	{
+		var fileName = '';
+		fileName = document.getElementById("loadFileInput").files[0].name;
+
+		document.getElementById("fileNameSpan").innerHTML = fileName;
+	}
+
+</script>
 <div id="parentId" class="parentDiv">
+	<div id="loadId" class="sectionDiv">
+		<div id="loadHeaderId" class="headerDiv">
+			<span class="loadSpan">Load File</span>
+		</div>
+		<div id="loadFileDeescriptionId" class="descriptionDiv">
+			To load a previously saved file press "Choose File" then press "Load".<br><br>
+		</div> 
+		<div id="loadFileButtonsId" class="descriptionDiv" style="display:flex;flex-direction:row;justify-content: space-around;">
+			<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+				<label class="customFileUpload" style="text-align:center;">
+					<input id="loadFileInput" type="file" onChange="displayFileName();" />
+					Select File...
+				</label>
+			</div>
+			<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+				<label class="customFileUpload" style="text-align:center;">
+					<input type="button" />
+					Load File
+				</label>
+			</div>
+		</div>
+		<div id="loadFileSelectedId" class="descriptionDiv" style="text-align:center;">
+			<span id="fileNameSpan"></span>
+		</div>
+	</div>
 	<div id="submitId" class="sectionDiv">
 		<div id="submitHeaderId" class="headerDiv">
 			<span class="headerSpan">Proposal Submitted To</span>
