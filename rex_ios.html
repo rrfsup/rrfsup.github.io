@@ -187,7 +187,7 @@
 	.descriptionDiv {
 		text-align: left;
 		font-family: -apple-system, Helvetica, sans-serif;
-		font-size: 7pt;
+		font-size: 9pt;
 	}
 
 	.labelDiv {
@@ -231,6 +231,11 @@
 		width: 100%;
 	}
 
+	#loadFileHeaderId {
+		color: #fff;
+		background: #aaa;
+	}
+
 	#submitHeaderId {
 		color: #fff;
 		background: #aaa;
@@ -251,24 +256,36 @@
 		padding-bottom: 10px;
 	}
 
+	#loadFileHeaderId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+	}
+
+	#loadFileContentId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+	}
+
+
 	#submitHeaderId {
-		border-left: 2px solid #aaf;
+		border-left: 1px solid #aaa;
 		border-right: 1px solid #aaa;
 	}
 
 	#submitContentId {
-		border-left: 2px solid #aaf;
+		border-left: 1px solid #aaa;
 		border-right: 1px solid #aaa;
 		border-bottom: 1px solid #aaa;
 	}
 
 	#workAtHeaderId {
-		border-left: 2px solid #faa;
+		border-left: 1px solid #aaa;
 		border-right: 1px solid #aaa;
 	}
 
 	#workAtContentId {
-		border-left: 2px solid #faa;
+		border-left: 1px solid #aaa;
 		border-right: 1px solid #aaa;
 		border-bottom: 1px solid #aaa;
 	}
@@ -302,7 +319,7 @@
 		-moz-appearance: none;
 		appearance: none;
 		font-family: -apple-system, Helvetica, sans-serif;
-		font-size: 10pt;
+		font-size: 13pt;
 		background: rgb(0, 122,255);
 		color: #fff;
 	}
@@ -322,28 +339,30 @@
 </script>
 <div id="parentId" class="parentDiv">
 	<div id="loadId" class="sectionDiv">
-		<div id="loadHeaderId" class="headerDiv">
-			<span class="loadSpan">Load File</span>
+		<div id="loadFileHeaderId" class="headerDiv">
+			<span class="headerSpan">Load File</span>
 		</div>
-		<div id="loadFileDeescriptionId" class="descriptionDiv">
-			To load a previously saved file press "Choose File" then press "Load".<br><br>
-		</div> 
-		<div id="loadFileButtonsId" class="descriptionDiv" style="display:flex;flex-direction:row;justify-content: space-around;">
-			<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-				<label class="customFileUpload" style="text-align:center;">
-					<input id="loadFileInput" type="file" onChange="displayFileName();" />
-					Select File...
-				</label>
+		<div id="loadFileContentId" class="contentDiv">
+			<div id="loadFileDeescriptionId" class="descriptionDiv">
+				To load a previously saved file press "Choose File" then press "Load".<br><br>
+			</div> 
+			<div id="loadFileButtonsId" class="descriptionDiv" style="display:flex;flex-direction:row;justify-content: space-around;">
+				<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+					<label class="customFileUpload" style="text-align:center;">
+						<input id="loadFileInput" type="file" onChange="displayFileName();" />
+						Select File...
+					</label>
+				</div>
+				<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+					<label class="customFileUpload" style="text-align:center;">
+						<input type="button" />
+						Load File
+					</label>
+				</div>
 			</div>
-			<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-				<label class="customFileUpload" style="text-align:center;">
-					<input type="button" />
-					Load File
-				</label>
+			<div id="loadFileSelectedId" class="descriptionDiv" style="text-align:center;">
+				<span id="fileNameSpan"></span>
 			</div>
-		</div>
-		<div id="loadFileSelectedId" class="descriptionDiv" style="text-align:center;">
-			<span id="fileNameSpan"></span>
 		</div>
 	</div>
 	<div id="submitId" class="sectionDiv">
