@@ -211,6 +211,12 @@
 		text-align: left;
 	}
 
+	.fixedTextInput {
+		box-sizing: border-box;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 13pt;
+	}
+
 	.textInput {
 		box-sizing: border-box;
 		font-family: -apple-system, Helvetica, sans-serif;
@@ -425,7 +431,7 @@
 				Date of Service
 			</div>
 			<div id="invoiceDateInputId" class="textInputDiv">
-				<input id="invoiceDateInput" type="date" class="textInput">
+				<input id="invoiceDateInput" type="date" class="fixedTextInput">
 			</div>
 			<div id="invoiceNumberId" class="labelDiv">
 				Invoice Number
@@ -636,11 +642,11 @@
 		<div id="serviceDatesContentId" class="contentDiv">
 			<div id="serviceDatesLabelId" class="labelDiv">
 						 The approximate starting date is
-					<input id="serviceDatesStartInput" type="date">
+					<input id="serviceDatesStartInput" type="date" class="fixedTextInput">
 					, and the approximate completion date is
-					<input id="serviceDatesCompleteInput" type="date">.<br>
+					<input id="serviceDatesCompleteInput" type="date" class="fixedTextInput">.<br>
 					The proposal may be withdrawn if not accepted within
-					<input id="serviceDatesEstimateValidInput" type="tel" style="text-align:right" size="3" maxlength="3">
+					<input id="serviceDatesEstimateValidInput" class="fixedTextInput" type="tel" style="text-align:right" size="3" maxlength="3">
 					days.
 			</div>
 		</div>
