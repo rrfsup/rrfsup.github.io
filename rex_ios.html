@@ -364,7 +364,7 @@
 		</div>
 		<div id="loadFileContentId" class="contentDiv">
 			<div id="loadFileDeescriptionId" class="descriptionDiv">
-				To load a previously saved file press "Choose File" to find file to load, then press "Load File" to populate fields.<br><br>
+				To load a previously saved file press <b><i>Select File...</i></b> to find file to load, then press <b><i>Load File</i></b> to populate fields.<br><br>
 			</div> 
 			<div id="loadFileButtonsId" class="descriptionDiv" style="display:flex;flex-direction:row;justify-content: space-around;">
 				<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
@@ -395,6 +395,19 @@
 			</div>
 			<div id="invoiceDateInputId" class="textInputDiv">
 				<input id="invoiceDateInput" type="date" class="textInput">
+			</div>
+			<div id="invoiceNumberId" class="labelDiv">
+				Invoice Number
+			</div>
+			<div id="invoiceNumberInputId" class="textInputDiv" style="text-align: left;">
+				<div style="display:flex;flex-direction:row;">
+					<div style="display:flex;flex-direction:column;padding:1px;">
+						<input id="invoiceNumberStatic" type="text" class="textInput" value="30-" style="text-align: right;color:#00f;" maxlength="3" size="3" disabled>
+					</div>
+					<div style="display:flex;flex-direction:column;padding:1px;">
+						<input id="invoiceNumberInput" type="number" class="textInput" style="color:#f00;" data-maxlength="6"oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+					</div>
+				</div>
 			</div>
 			<div id="invoiceTechNameLabelId" class="labelDiv">
 				Service Technician Name
