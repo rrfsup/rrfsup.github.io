@@ -236,6 +236,11 @@
 		background: #aaa;
 	}
 
+	#invoiceHeaderId {
+		color: #fff;
+		background: #aaa;
+	}
+
 	#submitHeaderId {
 		color: #fff;
 		background: #aaa;
@@ -244,6 +249,11 @@
 	#workAtHeaderId {
 		color: #fff;
 		background: #aaa;
+	}
+
+	#invoiceContentId {
+		background: #eee;
+		padding-bottom: 10px;
 	}
 
 	#submitContentId {
@@ -267,6 +277,16 @@
 		border-bottom: 1px solid #aaa;
 	}
 
+	#invoiceHeaderId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+	}
+
+	#invoiceContentId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+	}
 
 	#submitHeaderId {
 		border-left: 1px solid #aaa;
@@ -365,6 +385,76 @@
 			</div>
 		</div>
 	</div>
+	<div id="invoiceId" class="sectionDiv">
+		<div id="invoiceHeaderId" class="headerDiv">
+			<span class="headerSpan">Invoice Details</span>
+		</div>
+		<div id="invoiceContentId" class="contentDiv">
+			<div id="invoiceDateLabelId" class="labelDiv">
+				Date of Service
+			</div>
+			<div id="invoiceDateInputId" class="textInputDiv">
+				<input id="invoiceDateInput" type="date" class="textInput">
+			</div>
+			<div id="invoiceTechNameLabelId" class="labelDiv">
+				Service Technician Name
+			</div>
+			<div id="invoiceTechNameInputId" class="textInputDiv">
+				<input id="invoiceTechNameInput" type="text" class="textInput">
+			</div>
+			<div id="invoiceTechNumberLabelId" class="labelDiv">
+				Service Technician Number
+			</div>
+			<div id="invoiceTechNumberInputId" class="textInputDiv">
+				<input id="invoiceTechNumberInput" type="number" class="textInput" data-maxlength="4" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+			</div>
+			<div id="invoiceTypeOfWorkLabelId" class="labelDiv">
+				<hr>
+				Type of Work
+			</div>
+			<div id="invoiceTypeOfWorkInputId" class="labelDiv">
+				<input id="invoiceTypeOfWorkSewerInput" type="checkbox" style="vertical-algin:middle">
+				<label id="invoiceTypeOfWorkSewerLabel" for="invoiceTypeOfWorkSewerInput" style="vertical-algin:middle">
+					Sewer
+				</label>
+				<input id="invoiceTypeOfWorkPlumbingInput" type="checkbox" style="vertical-align:middle">
+				<label id="invoiceTypeOfWorkPlumbingLabel" for="invoiceTypeOfWorkPlumbingInput" style="vertical-algin:middle">
+					Plumbing
+				</label>
+				<input id="invoiceTypeOfWorkPumpingInput" type="checkbox" style="vertical-align:middle">
+				<label id="invoiceTypeOfWorkPumpingLabel" for="invoiceTypeOfWorkPumpingInput" style="vertical-algin:middle">
+					Pumping
+				</label>
+				<input id="invoiceTypeOfWorkIndustrialInput" type="checkbox" style="vertical-algin:middle">
+				<label id="invoiceTypeOfWorkIndustrialLabel" for="invoiceTypeOfWorkIndustrialInput" style="vertical-algin:middle">
+					Industrial
+				</label>
+				<input id="invoiceTypeOfWorkExcavationInput" type="checkbox" style="vertical-algin:middle">
+				<label id="invoiceTypeOfWorkExcavationLabel" for="invoiceTypeOfWorkExcavationInput" style="vertical-algin:middle">
+					Excavation
+				</label>
+				<input id="invoiceTypeOfWorkDrainTileInput" type="checkbox" style="vertical-align:middle">
+				<label id="invoiceTypeOfWorkDrainTileLabel" for="invoiceTypeOfWorkDrainTileInput" style="vertical-algin:middle">
+					Drain Tile
+				</label>
+			</div>
+			<div id="invoiceCustomerClassLabelId" class="labelDiv">
+				<hr>
+				Customer Class
+			</div>
+			<div id="invoiceCustomerClassInputId" class="labelDiv">
+				<input id="invoiceCustomerClassResidentialInput" type="checkbox" style="vertical-algin:middle">
+				<label id="invoiceCustomerClassResidentialLabel" for="invoiceCustomerClassResidentialInput" style="vertical-algin:middle">
+					Residential
+				</label>
+				<input id="invoiceCustomerClassCommercialInput" type="checkbox" style="vertical-align:middle">
+				<label id="invoiceCustomerClassCommercialLabel" for="invoiceCustomerClassCommercialInput" style="vertical-algin:middle">
+					Commercial
+				</label>
+			</div>
+		</div>
+	</div>
+
 	<div id="submitId" class="sectionDiv">
 		<div id="submitHeaderId" class="headerDiv">
 			<span class="headerSpan">Proposal Submitted To</span>
