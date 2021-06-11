@@ -252,6 +252,11 @@
 		background: #aaa;
 	}
 
+	#serviceDatesHeaderId {
+		color: #fff;
+		background: #aaa;
+	}
+
 	#invoiceContentId {
 		background: #eee;
 		padding-bottom: 10px;
@@ -265,6 +270,22 @@
 	#workAtContentId {
 		background: #eee;
 		padding-bottom: 10px;
+	}
+
+	#serviceDatesContentId {
+		background: #eee;
+		padding-bottom: 10px;
+	}
+
+	#serviceDatesHeaderId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+	}
+
+	#serviceDatesContentId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
 	}
 
 	#loadFileHeaderId {
@@ -605,6 +626,20 @@
 			</div>
 			<div id="workAtTelephoneNumberInputId" class="telInputDiv">
 				<input id="workAtTelephoneNumberInput" type="tel" class="telInput">
+			</div>
+		</div>
+	</div>
+	<div id="serviceDatesId" class="sectionDiv">
+		<div id="serviceDatesHeaderId" class="headerDiv">
+			<span class="headerSpan">Service Dates</span>
+		</div>
+		<div id="serviceDatesContentId" class="contentDiv">
+			<div id="serviceDatesLabelId" class="labelDiv">
+						 The approximate starting date is
+					<input id="serviceDatesStartInput" type="date">
+					, and the approximate completion date is
+					<input id="serviceDatesCompleteInput" type="date">
+					.
 			</div>
 		</div>
 	</div>
