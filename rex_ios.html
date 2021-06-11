@@ -495,14 +495,20 @@
 
 	<div id="submitId" class="sectionDiv">
 		<div id="submitHeaderId" class="headerDiv">
-			<span class="headerSpan">Proposal Submitted To</span>
+			<span class="headerSpan">Customer Details</span>
 		</div>
 		<div id="submitContentId" class="contentDiv">
 			<div id="submitNameLabelId" class="labelDiv">
-				Name
+				Customer Name
 			</div>
 			<div id="submitNameInputId" class="textInputDiv">
 				<input id="submitNameInput" type="text" class="textInput">
+			</div>
+			<div id="submitNumberLabelId" class="labelDiv">
+				Customer Number
+			</div>
+			<div id="submitNumberInputId" class="textInputDiv">
+				<input id="submitNumberInput" type="text" class="textInput">
 			</div>
 			<div id="submitStreetLabelId" class="labelDiv">
 				Street
@@ -534,17 +540,24 @@
 			<div id="submitTelephoneNumberInputId" class="telInputDiv">
 				<input id="submitTelephoneNumberInput" type="tel" class="telInput">
 			</div>
+			<div id="submitPoNumberLabelId" class="labelDiv">
+				<hr>
+				P.O Number/Authorization
+			</div>
+			<div id="submitPoNumberInputId" class="textInputDiv">
+				<input id="submitPoNumberInput" type="text" class="textInput">
+			</div>
 		</div>
 	</div>
 	<div id="workAtId" class="sectionDiv">
 		<div id="workAtHeaderId" class="headerDiv">
-			<span class="headerSpan">Work To Be Performed At</span>
+			<span class="headerSpan">Service Location Details</span>
 		</div>
 		<div id="workAtContentId" class="contentDiv">
 			<div id="workAtCopyAddressLabelId" class="labelDiv">
-				<input id="workAtCopyAddressInput" type="checkbox" style="vertical-align:middle">
-				<label id="workAtCopyAddressLabel" for="workAtCopyAddressInput" style="vertical-algin:middle">
-					Use <b><i>Proposal Submitted To</i></b> Contact Details
+				<label id="workAtCopyAddressLabel" for="workAtCopyAddressInput">
+					<input id="workAtCopyAddressInput" type="checkbox">
+					<i>Use Customer Details</i>
 				</label>
 				<hr>
 			</div>
@@ -585,6 +598,9 @@
 				<input id="workAtTelephoneNumberInput" type="tel" class="telInput">
 			</div>
 		</div>
+	</div>
+	<div>
+			  Copyright &copy; 2021 - MonB Development - All Rights Reserved
 	</div>
 </div>
 </body>
