@@ -23,27 +23,27 @@
 	pdf.text("21", 171, 4);
 
 	pdf.setFontSize(10);
-	pdf.text("Jason Charles", 153, 10);
+	pdf.text("Jason Charles", 153, 11);
 
 	pdf.text("Gary Greenwell", 7, 44);
 	pdf.text("##########", 118, 44);
 
 	pdf.setFontSize(18);
-	pdf.text("186377", 169, 23);
-	pdf.text("5232", 200, 10);
-	pdf.text("X", 155, 44);
-	pdf.text("X", 192, 44);
+	pdf.text("186377", 169, 24);
+	pdf.text("5232", 200, 12);
+	pdf.text("X", 154, 44);
+	pdf.text("X", 191, 44);
 
 	pdf.setFontSize(10);
 	pdf.text("7528 Morningside Dr.", 7, 52);
 
-	pdf.text("X", 174, 31);
-	pdf.text("X", 195, 31);
-	pdf.text("X", 214, 31);
+	pdf.text("X", 173, 31);
+	pdf.text("X", 194, 31);
+	pdf.text("X", 213, 31);
 
-	pdf.text("X", 174, 36);
-	pdf.text("X", 195, 36);
-	pdf.text("X", 214, 36);
+	pdf.text("X", 173, 36);
+	pdf.text("X", 194, 36);
+	pdf.text("X", 213, 36);
 
 	pdf.text("Walton Hills", 7, 59);
 	pdf.text("OH", 76, 59);
@@ -56,7 +56,7 @@
 	pdf.text("OH", 176, 66);
 	pdf.text("44146", 199, 66);
 
-	pdf.text("6/12/2021", 123, 91);
+	pdf.text("6/12/2021", 121, 91);
 	pdf.text("6/15/2021", 9, 95);
 
 	pdf.text("Line 1 -", 7, 101);
@@ -88,13 +88,8 @@
 	pdf.text("6000.00", 188, 178);
 	pdf.text("14,000.00", 188, 209);
 
-	pdf.text("X", 4, 269);
-	pdf.text("This is a good reason", 4, 275);
-/*
-	for(var x = 0; x < 180; x += 10)
-		for(var y = 0; y < 180; y += 10)
-			pdf.text("|", x, y);
-*/
+	pdf.text("X", 1, 269);
+	pdf.text("This is a good reason", 1, 275);
 
         pdf.save('TestInvoice.pdf');
     }
