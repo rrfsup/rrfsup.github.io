@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+
+@media print
+{
+	@page {
+		size: 215mm 281mm portrait;
+		margin: 0;
+	}
+
+	.invoicePrint {
+		font: 10pt Courier New, monospace;
+		color: #000;
+	}
+
+	input[type = button] {
+		display: none;
+	}
+}
+
+
+@media screen 
+{
+
+	.proposalPrint {
+		display: none;
+	}
+
+}
+
+.proposalPrint {
+	font: 10pt Courier New, monospace;
+	color: #000;
+}
+
+.showInvoice {
+	font: 10pt Courier New, monospace;
+	color: #000;
+}
+
+.invoicePrint {
+	vertical-align: top;
+	text-align: left;
+	font: 10pt Courier New, monospace;
+	color: #000;
+}
+
+</style>
+</head>
+<body style="margin:0;">
+	<input type="button" name="Change" value="Change" onclick="printGrid();">
+
+<div id="invoice" style="position:unset;margin:0;">
+<!-- Service Date -->
+<div id="pServiceDateMonth" class="invoicePrint" style="position:absolute;top:0mm;left:134.42mm;font:12pt Courier New,monospace;">06</div>
+<div id="pServiceDateDay" class="invoicePrint" style="position:absolute;top:0mm;left:141.94mm;font:12pt Courier New,monospace;">11</div>
+<div id="pServiceDateYear" class="invoicePrint" style="position:absolute;top:0mm;left:149.46mm;font:12pt Courier New,monospace;">21</div>
+
+<!-- Service Tech -->
+<div id="pServiceTechName" class="invoicePrint" style="position:absolute;top:6.58mm;left:133.48mm;width:40mm;">Service Tech Name</div>
+<!--
+<div id="pServiceTechNumber1" class="invoicePrint" style="position:absolute;top:8mm;left:197mm;width:4mm;">1</div>
+<div id="pServiceTechNumber2" class="invoicePrint" style="position:absolute;top:8mm;left:202mm;width:4mm;">2</div>
+<div id="pServiceTechNumber3" class="invoicePrint" style="position:absolute;top:8mm;left:207mm;width:4mm;">3</div>
+<div id="pServiceTechNumber4" class="invoicePrint" style="position:absolute;top:8mm;left:212mm;width:4mm;">4</div>
+-->
+
+<!-- Invoice Number -->
+<div id="pInvoiceNumber" class="invoicePrint" style="position:absolute;top:15.98mm;left:146.64mm;font:18pt Courier New,monospace;">186376</div>
+
+<!-- Service Type -->
+<div id="pSewerAndDrain" class="invoicePrint" style="position:absolute;top:30.08mm;left:156.04mm;font:14pt Courier New, monospace;">X</div>
+<!--
+<div id="pPlumbing" class="invoicePrint" style="position:absolute;top:26mm;left:190.50mm;font:14pt Courier New, monospace;">X</div>
+<div id="pPumping" class="invoicePrint" style="position:absolute;top:26mm;left:200.50mm;font:14pt Courier New, monospace;">X</div>
+-->
+<div id="pIndustrial" class="invoicePrint" style="position:absolute;top:30.5mm;left:167.25mm;font:14pt Courier New, monospace;">X</div>
+<!--
+<div id="pExcavation" class="invoicePrint" style="position:absolute;top:30.5mm;left:190.50mm;font:14pt Courier New, monospace;">X</div>
+<div id="pDrainTile" class="invoicePrint" style="position:absolute;top:30.5mm;left:200.50mm;font:14pt Courier New, monospace;">X</div>
+-->
+
+<div id="pResidential" class="invoicePrint" style="position:absolute;top:37.5mm;left:152mm;font:18pt Courier New, monospace;">X</div>
+<!--
+<div id="pCommercial" class="invoicePrint" style="position:absolute;top:37.5mm;left:188.75mm;font:18pt Courier New, monospace;">X</div>
+-->
+
+<!-- Customer Details -->
+<div id="pCustomerName" class="invoicePrint" style="position:absolute;top:40mm;left:5mm">Gary Greenwell</div>
+<div id="pCustomerNumber" class="invoicePrint" style="position:absolute;top:40mm;left:115mm">#########</div>
+<div id="pBillingAddress" class="invoicePrint" style="position:absolute;top:47mm;left:5mm">7528 Morningside Dr.</div>
+<div id="pBillingCity" class="invoicePrint" style="position:absolute;top:54.25mm;left:5mm">Walton Hills</div>
+<div id="pBillingState" class="invoicePrint" style="position:absolute;top:54.25mm;left:75mm">OH</div>
+<div id="pBillingZip" class="invoicePrint" style="position:absolute;top:54.25mm;left:100mm">44146</div>
+<div id="pBillingPhone" class="invoicePrint" style="position:absolute;top:54.25mm;left:127mm">216-555-1212</div>
+<!--
+<div id="pPoNumber" class="invoicePrint" style="position:absolute;top:54.25mm;left:173mm">#########</div>
+-->
+<div id="pServiceAddress" class="invoicePrint" style="position:absolute;top:60.75mm;left:5mm">7528 Morningside Dr.</div>
+<div id="pServiceCity" class="invoicePrint" style="position:absolute;top:60.75mm;left:127mm">Walton Hills</div>
+<!--
+<div id="pServiceState" class="invoicePrint" style="position:absolute;top:60.75mm;left:173mm">OH</div>
+<div id="pServiceZip" class="invoicePrint" style="position:absolute;top:60.75mm;left:196mm">44146</div>
+-->
+
+<!-- Date Details -->
+<div id="pStartDate" class="invoicePrint" style="position:absolute;top:86.25mm;left:120mm">6/11/2021</div>
+<div id="pCompletionDate" class="invoicePrint" style="position:absolute;top:90mm;left:10mm">6/30/2021</div>
+
+<!-- Service Description -->
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:96mm;left:5mm;width:180mm;">12345678911234567892123456789312345678941234567895</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:100.2mm;left:5mm;width:180mm;">12345678911234567892123456789312345678941234567895</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:104.4mm;left:5mm;width:180mm;">2) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:108.6mm;left:5mm;width:180mm;">3) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:112.8mm;left:5mm;width:180mm;">4) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:117mm;left:5mm;width:180mm;">5) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:121.2mm;left:5mm;width:180mm;">6) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:125.4mm;left:5mm;width:180mm;">7) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:129.6mm;left:5mm;width:180mm;">8) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:133.8mm;left:5mm;width:180mm;">9) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:138mm;left:5mm;width:180mm;">10) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:142.2mm;left:5mm;width:180mm;">11) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:146.4mm;left:5mm;width:180mm;">12) This is one line of text.</div>
+<div id="pServiceDescription" class="invoicePrint" style="position:absolute;top:150.6mm;left:5mm;width:180mm;">13) This is one line of text.</div>
+
+<!-- Service Cost -->
+<!--
+<div id="pServiceCost" class="invoicePrint" style="position:absolute;top:100.2mm;left:193.75mm">$1000.00</div>
+-->
+
+<!-- Discounts -->
+<div id="pDiscountDescription1" class="invoicePrint" style="position:absolute;top:165.975mm;left:5mm;width:132mm;">This is the first discount.</div>
+<div id="pDiscountDescription2" class="invoicePrint" style="position:absolute;top:170.1723mm;left:5mm;width:132mm;">This is the second discount.</div>
+<div id="pDiscountDescription3" class="invoicePrint" style="position:absolute;top:174.3696mm;left:5mm;width:132mm;">This is the third discount.</div>
+<div id="pDiscountAmount1" class="invoicePrint" style="position:absolute;top:165.975mm;left:144mm">$1000.00</div>
+<div id="pDiscountAmount2" class="invoicePrint" style="position:absolute;top:170.1723mm;left:144mm">$2000.00</div>
+<div id="pDiscountAmount3" class="invoicePrint" style="position:absolute;top:174.3696mm;left:144mm">$3000.00</div>
+
+<!-- Amounts -->
+<!--
+<div id="pTotalDiscount" class="invoicePrint" style="position:absolute;top:170.1723mm;left:185mm">$1000.00</div>
+<div id="pTotalCost" class="invoicePrint" style="position:absolute;top:199.1mm;left:185mm">$2000.00</div>
+-->
+
+<!-- Guarantee -->
+<!--
+<div id="pExtendedGuarantee" class="invoicePrint" style="position:absolute;top:258mm;left:4mm">X</div>
+<div id="pExtendedGuaranteeReason" class="invoicePrint" style="position:absolute;top:264mm;left:4mm;width:90mm">This is a good reason.</div>
+-->
+</div>
+	<script>
+		function printGrid()
+		{
+			for (var x = 0; x < 180; x += 10)
+			{
+				for (var y = 0; y < 190; y += 10)
+				{
+					var node = document.createElement("div");
+					node.className = "invoicePrint";
+					node.style.position = "absolute";
+					node.style.top = y + "mm";
+					node.style.left = x + "mm";
+					node.innerHTML = "|";
+					document.body.appendChild(node);
+				}
+			}
+		}
+		
+		function flipInvoice()
+		{
+			var children = document.getElementById("invoice").children;
+			for (var i = 0; i < children.length; i++)
+			{
+				children[i].className = (children[i].className == "invoicePrint") ? "showInvoice" : "invoicePrint";
+			}
+		}
+
+	</script>
+</body>
+</html>
