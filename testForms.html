@@ -7,14 +7,6 @@
     function testInvoice() {
         var pdf = new jsPDF('p', 'mm', 'letter');
 
-	/*
-	object = pdf.getFontList();
-	for(const property in object)
-	{
-		document.getElementById("info").innerHTML += `${property}: ${object[property]}`;
-	}
-        */
-
 	pdf.setFont("courier", "normal", "normal");
 
 	pdf.setFontSize(12);
@@ -98,29 +90,54 @@
         var pdf = new jsPDF('p', 'mm', 'letter');
 
 	pdf.setFont("courier", "normal", "normal");
+
 	pdf.setFontSize(12);
+	pdf.text("06/12/21", 175, 3);
 
-	pdf.text("Gary Greenwell", 10, 48);
-	pdf.text("7528 Morningside Dr.", 10, 54);
-	pdf.text("Walton Hills", 10, 61);
-	pdf.text("7528 Morningside Dr.", 10, 69);
-	pdf.text("Line 1 -", 10, 100);
-	pdf.text("Line 2 -", 10, 104);
-	pdf.text("Line 3 -", 10, 108);
-	pdf.text("Line 4 -", 10, 112);
-	pdf.text("Line 5 -", 10, 117);
-	pdf.text("Line 6 -", 10, 121);
-	pdf.text("Line 7 -", 10, 125);
-	pdf.text("Line 8 -", 10, 129);
-	pdf.text("Line 9 -", 10, 134);
-	pdf.text("Line 10 -", 10, 138);
-	pdf.text("Line 11 -", 10, 142);
-	pdf.text("Line 12 -", 10, 146);
-	pdf.text("Line 13 -", 10, 150);
+	pdf.setFontSize(18);
+	pdf.text("186377", 191, 13);
 
-	for(var x = 0; x < 180; x += 10)
-		for(var y = 0; y < 180; y += 10)
-			pdf.text("|", x, y);
+	pdf.setFontSize(10);
+	pdf.text("Gary Greenwell", 20, 57);
+	pdf.text("7528 Morningside Dr.", 20, 61.25);
+	pdf.text("Walton Hills", 20, 65.5);
+	pdf.text("OH", 20, 69.75);
+	pdf.text("44146", 79, 69.75);
+	pdf.text("(216) 555-1212", 38, 72);
+
+	pdf.text("Gary Greenwell", 104, 57);
+	pdf.text("7528 Morningside Dr.", 104, 61.25);
+	pdf.text("Walton Hills", 104, 65.5);
+	pdf.text("OH", 104, 69.75);
+	pdf.text("44146", 163, 69.75);
+	pdf.text("(216) 555-1212", 122, 72);
+
+	pdf.text("Line 1 - ", 10, 87);
+	pdf.text("Line 2 - ", 10, 91.25);
+	pdf.text("Line 3 - ", 10, 95.5);
+	pdf.text("Line 4 - ", 10, 99.75);
+	pdf.text("Line 5 - ", 10, 104);
+	pdf.text("Line 6 - ", 10, 108.25);
+	pdf.text("Line 7 - ", 10, 112.5);
+	pdf.text("Line 8 - ", 10, 116.75);
+	pdf.text("Line 9 - ", 10, 121);
+	pdf.text("Line 10 - ", 10, 125.25);
+	pdf.text("Line 11 - ", 10, 129.5);
+	pdf.text("Line 12 - ", 10, 133.75);
+	pdf.text("Line 13 - ", 10, 138);
+
+	pdf.text("5000.00", 143, 151);
+
+	pdf.text("50", 20, 157);
+	pdf.text("50", 20, 163);
+
+	pdf.text("50", 63, 157);
+	pdf.text("50", 63, 163);
+
+	pdf.text("6/12/2021", 55, 174);
+	pdf.text("6/12/2021", 150, 174);
+
+	pdf.text("50", 100, 238);
 
         pdf.save('TestProposal.pdf');
     }
