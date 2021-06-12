@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="jspdf.debug.js"></script>
+<script>
+    function testInvoice() {
+        var pdf = new jsPDF('p', 'mm', 'letter');
+
+	pdf.setFont("courier", "normal", "normal");
+	pdf.setFontSize(12);
+
+	pdf.text("06", 148, 7);
+	pdf.text("12", 156, 7);
+	pdf.text("21", 164, 7);
+
+	pdf.text("Jason Charles", 147, 12);
+
+	pdf.text("Gary Greenwell", 10, 48);
+	pdf.text("7528 Morningside Dr.", 10, 54);
+	pdf.text("Walton Hills", 10, 61);
+	pdf.text("7528 Morningside Dr.", 10, 68);
+	pdf.text("Line 1 -", 10, 100);
+	pdf.text("Line 2 -", 10, 104);
+	pdf.text("Line 3 -", 10, 108);
+	pdf.text("Line 4 -", 10, 112);
+	pdf.text("Line 5 -", 10, 117);
+	pdf.text("Line 6 -", 10, 121);
+	pdf.text("Line 7 -", 10, 125);
+	pdf.text("Line 8 -", 10, 129);
+	pdf.text("Line 9 -", 10, 134);
+	pdf.text("Line 10 -", 10, 138);
+	pdf.text("Line 11 -", 10, 142);
+	pdf.text("Line 12 -", 10, 146);
+	pdf.text("Line 13 -", 10, 150);
+
+	for(var x = 0; x < 180; x += 10)
+		for(var y = 0; y < 180; y += 10)
+			pdf.text("|", x, y);
+
+        pdf.save('TestInvoice.pdf');
+    }
+
+    function testProposal() {
+        var pdf = new jsPDF('p', 'mm', 'letter');
+
+	pdf.setFont("courier", "normal", "normal");
+	pdf.setFontSize(12);
+
+	pdf.text("Gary Greenwell", 10, 48);
+	pdf.text("7528 Morningside Dr.", 10, 54);
+	pdf.text("Walton Hills", 10, 61);
+	pdf.text("7528 Morningside Dr.", 10, 69);
+	pdf.text("Line 1 -", 10, 100);
+	pdf.text("Line 2 -", 10, 104);
+	pdf.text("Line 3 -", 10, 108);
+	pdf.text("Line 4 -", 10, 112);
+	pdf.text("Line 5 -", 10, 117);
+	pdf.text("Line 6 -", 10, 121);
+	pdf.text("Line 7 -", 10, 125);
+	pdf.text("Line 8 -", 10, 129);
+	pdf.text("Line 9 -", 10, 134);
+	pdf.text("Line 10 -", 10, 138);
+	pdf.text("Line 11 -", 10, 142);
+	pdf.text("Line 12 -", 10, 146);
+	pdf.text("Line 13 -", 10, 150);
+
+	for(var x = 0; x < 180; x += 10)
+		for(var y = 0; y < 180; y += 10)
+			pdf.text("|", x, y);
+
+        pdf.save('TestProposal.pdf');
+    }
+</script>
+				
+
+<style>
+
+
+
+@media print
+{
+	@page {
+		size: 215mm 281mm portrait;
+		margin: 0;
+	}
+
+	.invoicePrint {
+		font: 10pt Courier New, monospace;
+		color: #000;
+	}
+
+	input[type = button] {
+		display: none;
+	}
+}
+
+
+@media screen 
+{
+
+	.proposalPrint {
+		display: none;
+	}
+
+}
+
+.proposalPrint {
+	font: 10pt Courier New, monospace;
+	color: #000;
+}
+
+.showInvoice {
+	font: 10pt Courier New, monospace;
+	color: #000;
+}
+
+.invoicePrint {
+	vertical-align: top;
+	text-align: left;
+	font: 10pt Courier New, monospace;
+	color: #000;
+}
+
+	.parentDiv {
+		margin: 0px;
+		padding: 0px;
+		text-align: center;
+	}
+
+	.sectionDiv {
+		padding: 5px;
+		align: center;
+		text-align: center;
+	}
+
+	.headerDiv {
+		text-align: left;
+		background: #eee;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 10pt;
+		font-weight: bold;
+	}
+
+	.headerSpan {
+		margin-left: 10px;
+	}
+		
+
+	.contentDiv {
+		padding: 10px;
+		text-align: center;
+	}
+
+	.descriptionDiv {
+		text-align: left;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 9pt;
+	}
+
+	.labelDiv {
+		text-align: left;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 11pt;
+	}
+
+	.textInputDiv {
+		text-align: left;
+	}
+	
+
+	#testHeaderId {
+		color: #fff;
+		background: #aaa;
+	}
+
+	#testHeaderId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+	}
+
+	#testContentId {
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+	}
+
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+
+	input[type="file"] {
+		display: none;
+	}
+
+	input[type="button"] {
+		display: none;
+	}
+	
+	.customFileUpload {
+		display: block;
+		box-sizing: border-box;
+		padding: 6px 12px;
+		cursor: pointer;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		font-family: -apple-system, Helvetica, sans-serif;
+		font-size: 13pt;
+		background: rgb(0, 122,255);
+		color: #fff;
+	}
+
+	
+</style>
+</head>
+<body>
+<div id="parentId" class="parentDiv">
+	<div id="testId" class="sectionDiv">
+		<div id="testHeaderId" class="headerDiv">
+			<span class="headerSpan">Form Tests</span>
+		</div>
+		<div id="testContentId" class="contentDiv">
+			<div id="testButtonsId" class="descriptionDiv" style="display:flex;flex-direction:row;justify-content: space-around;">
+				<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+					<label class="customFileUpload" style="text-align:center;">
+						<input id="testInvoiceButton" type="button" onClick="testInvoice();" />
+						Generate Test Invoice
+					</label>
+				</div>
+				<div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+					<label class="customFileUpload" style="text-align:center;">
+						<input id="testProposalButton" value="Test" type="button" onClick="testProposal();" /> 
+						Generate Test Proposal
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
