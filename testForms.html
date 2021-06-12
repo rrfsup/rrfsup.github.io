@@ -7,6 +7,12 @@
     function testInvoice() {
         var pdf = new jsPDF('p', 'mm', 'letter');
 
+	object = pdf.getFontList();
+	for(const property in object)
+	{
+		document.getElementById("info").innerHTML += `${property}: ${object[property]}`;
+	}
+
 	pdf.setFont("courier", "normal", "normal");
 	pdf.setFontSize(12);
 
@@ -225,6 +231,9 @@
 </style>
 </head>
 <body>
+<div id="info">
+</div>
+
 <div id="parentId" class="parentDiv">
 	<div id="testId" class="sectionDiv">
 		<div id="testHeaderId" class="headerDiv">
