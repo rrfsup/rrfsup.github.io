@@ -6,10 +6,33 @@
 <script>
     function demoFromHTML() {
         var pdf = new jsPDF('p', 'mm', 'letter');
+	console.log(pdf.getFontList());
 
-	pdf.text("06", 150, 7);
-	pdf.text("11", 159, 7);
-	pdf.text("21", 168, 7);
+	pdf.setFont("courier", "normal", "normal");
+	pdf.setFontSize(12);
+
+	pdf.text("Gary Greenwell", 10, 48);
+	pdf.text("7528 Morningside Dr.", 10, 54);
+	pdf.text("Walton Hills", 10, 61);
+	pdf.text("7528 Morningside Dr.", 10, 69);
+	pdf.text("Line 1 -", 10, 100);
+	pdf.text("Line 2 -", 10, 104);
+	pdf.text("Line 3 -", 10, 108);
+	pdf.text("Line 4 -", 10, 112);
+	pdf.text("Line 5 -", 10, 117);
+	pdf.text("Line 6 -", 10, 121);
+	pdf.text("Line 7 -", 10, 125);
+	pdf.text("Line 8 -", 10, 129);
+	pdf.text("Line 9 -", 10, 134);
+	pdf.text("Line 10 -", 10, 138);
+	pdf.text("Line 11 -", 10, 142);
+	pdf.text("Line 12 -", 10, 146);
+	pdf.text("Line 13 -", 10, 150);
+
+	for(var x = 0; x < 180; x += 10)
+		for(var y = 0; y < 180; y += 10)
+			pdf.text("|", x, y);
+
         pdf.save('Test.pdf');
     }
 </script>
