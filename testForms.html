@@ -7,38 +7,58 @@
     function testInvoice() {
         var pdf = new jsPDF('p', 'mm', 'letter');
 
+	/*
 	object = pdf.getFontList();
 	for(const property in object)
 	{
 		document.getElementById("info").innerHTML += `${property}: ${object[property]}`;
 	}
+        */
 
-	pdf.setFont("Courier", "normal", "normal");
+	pdf.setFont("courier", "normal", "normal");
+
 	pdf.setFontSize(12);
-
 	pdf.text("06", 148, 7);
 	pdf.text("12", 156, 7);
 	pdf.text("21", 164, 7);
 
+	pdf.setFontSize(10);
 	pdf.text("Jason Charles", 147, 12);
 
-	pdf.text("Gary Greenwell", 10, 48);
-	pdf.text("7528 Morningside Dr.", 10, 54);
-	pdf.text("Walton Hills", 10, 61);
-	pdf.text("7528 Morningside Dr.", 10, 68);
-	pdf.text("Line 1 -", 10, 100);
-	pdf.text("Line 2 -", 10, 104);
-	pdf.text("Line 3 -", 10, 108);
-	pdf.text("Line 4 -", 10, 112);
-	pdf.text("Line 5 -", 10, 117);
-	pdf.text("Line 6 -", 10, 121);
-	pdf.text("Line 7 -", 10, 125);
-	pdf.text("Line 8 -", 10, 129);
-	pdf.text("Line 9 -", 10, 134);
-	pdf.text("Line 10 -", 10, 138);
-	pdf.text("Line 11 -", 10, 142);
-	pdf.text("Line 12 -", 10, 146);
-	pdf.text("Line 13 -", 10, 150);
+	pdf.text("Gary Greenwell", 4, 44.5);
+	pdf.text("##########", 104, 44.5);
+
+	pdf.setFontSize(18);
+	pdf.text("X", 144, 44.5);
+	pdf.text("X", 178, 44.5);
+
+	pdf.setFontSize(10);
+	pdf.text("7528 Morningside Dr.", 4, 52.5);
+
+	pdf.text("Walton Hills", 4, 59.5);
+	pdf.text("OH", 69, 59.5);
+	pdf.text("44146", 95, 59.5);
+	pdf.text("(###) ###-####", 121, 59.5);
+	pdf.text("##########", 164, 59.5);
+
+	pdf.text("7528 Morningside Dr.", 4, 66);
+	pdf.text("Walton Hills", 121, 66);
+	pdf.text("OH", 164, 66);
+	pdf.text("44146", 185, 66);
+
+	pdf.text("Line 1 -", 4, 100);
+	pdf.text("Line 2 -", 4, 104);
+	pdf.text("Line 3 -", 4, 108);
+	pdf.text("Line 4 -", 4, 112);
+	pdf.text("Line 5 -", 4, 117);
+	pdf.text("Line 6 -", 4, 121);
+	pdf.text("Line 7 -", 4, 125);
+	pdf.text("Line 8 -", 4, 129);
+	pdf.text("Line 9 -", 4, 134);
+	pdf.text("Line 10 -", 4, 138);
+	pdf.text("Line 11 -", 4, 142);
+	pdf.text("Line 12 -", 4, 146);
+	pdf.text("Line 13 -", 4, 150);
 
 	for(var x = 0; x < 180; x += 10)
 		for(var y = 0; y < 180; y += 10)
