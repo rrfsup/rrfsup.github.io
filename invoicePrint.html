@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script src="jspdf.debug.js"></script>
+<script>
+    function demoFromHTML() {
+        var pdf = new jsPDF('p', 'mm', 'letter');
+
+	pdf.text("06", 150, 7);
+	pdf.text("11", 159, 7);
+	pdf.text("21", 168, 7);
+        pdf.save('Test.pdf');
+    }
+</script>
+				
+
 <style>
 
 
@@ -152,7 +166,9 @@
 <div id="pExtendedGuaranteeReason" class="invoicePrint" style="position:absolute;top:264mm;left:4mm;width:90mm">This is a good reason.</div>
 -->
 </div>
-	<script>
+
+
+			<script>
 		function printGrid()
 		{
 			for (var x = 0; x < 180; x += 10)
@@ -180,5 +196,13 @@
 		}
 
 	</script>
+
+<a href="javascript:demoFromHTML()" class="button">Run Code</a>
+<div id="content">
+    <h1>  
+        We support special element handlers. Register them with jQuery-style.
+    </h1>
+</div>
+
 </body>
 </html>
