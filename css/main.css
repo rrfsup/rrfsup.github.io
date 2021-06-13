@@ -1,0 +1,283 @@
+@page
+{
+    size: 8.5in 11in;
+}
+
+@media print
+{
+    body {
+        font:10px Courier New, monospace;
+        margin: 0mm;
+    }
+
+    .noPrint, *.noPrint {
+        display: none !important;
+    }
+
+    .parentDiv {
+        position: unset;
+    }
+
+    .sectionDiv {
+        position: unset;
+    }
+
+    .headerDiv {
+        display: none !important;
+    }
+
+    .contentDiv {
+        position: unset;
+    }
+
+    .labelDiv {
+        display: none !important;
+    }
+
+    .textInputDiv {
+        font: 10px Courier New, monospace;
+    }
+
+    /*
+     * Proposal Submitted To Input Print Alignment
+     */
+    #submitNameInputId {
+        position: absolute;
+        top: 36mm;
+        left: 32mm;
+    }
+
+    #submitStreetInputId {
+        position: absolute;
+        top: 40mm;
+        left: 32mm;
+    }
+
+    #submitCityInputId {
+        position: absolute;
+        top: 44mm;
+        left: 32mm;
+    }
+
+    #submitStateInputId {
+        position: absolute;
+        top: 48mm;
+        left: 32mm;
+    }
+
+    #submitZipInputId {
+        position: absolute;
+        top: 48mm;
+        left: 88mm;
+    }
+
+    #submitTelephoneNumberInputId {
+        position: absolute;
+        top: 52mm;
+        left: 47mm;
+    }
+
+    /*
+     * Work To Be Performed At Input Print Alignment
+     */
+    #workAtNameInputId {
+        position: absolute;
+        top: 36mm;
+        left: 118mm;
+    }
+
+    #workAtStreetInputId {
+        position: absolute;
+        top: 40mm;
+        left: 118mm;
+    }
+
+    #workAtCityInputId {
+        position: absolute;
+        top: 44mm;
+        left: 118mm;
+    }
+
+    #workAtStateInputId {
+        position: absolute;
+        top: 48mm;
+        left: 118mm;
+    }
+
+    #workAtZipInputId {
+        position: absolute;
+        top: 48mm;
+        left: 169mm;
+    }
+
+    #workAtTelephoneNumberInputId {
+        position: absolute;
+        top: 52mm;
+        left: 133mm;
+    }
+
+
+    /*
+     * Input Field Print Styles
+     */
+    .textInput {
+        border: none;
+        box-shadow: none;
+        vertical-align: middle;
+        font: 10pt Courier New, monospace;
+        font-weight: bold;
+    }
+
+    .numberInput {
+        border: none;
+        box-shadow: none;
+        vertical-align: middle;
+        font: 10pt Courier New, monospace;
+        font-weight: bold;
+    }
+
+    .telInput {
+        border: none;
+        box-shadow: none;
+        vertical-align: middle;
+        font: 10pt Courier New, monospace;
+        font-weight: bold;
+    }
+}
+
+.parentDiv {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.sectionDiv {
+    padding: 5px;
+    align: center;
+    text-align: center;
+}
+
+.headerDiv {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #fff;
+    background: #aaa;
+}
+
+.headerSpan {
+    margin-left: 10px;
+}
+
+.contentDiv {
+    padding: 10px;
+    text-align: center;
+    background: #eee;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.descriptionDiv {
+    text-align: left;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 9pt;
+}
+
+.labelDiv {
+    text-align: left;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 11pt;
+}
+
+.textInputDiv {
+    text-align: left;
+}
+
+.numberInputDiv {
+    padding-right: 5px;
+    text-align: left;
+}
+
+.telInputDiv {
+    padding-right: 5px;
+    text-align: left;
+}
+
+.fixedTextInput {
+    box-sizing: border-box;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 13pt;
+}
+
+.textInput {
+    box-sizing: border-box;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 13pt;
+    width: 100%;
+}
+
+.numberInput {
+    box-sizing: border-box;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 13pt;
+    width: 100%;
+}
+
+.telInput {
+    box-sizing: border-box;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 13pt;
+    width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="button"] {
+    display: none;
+}
+
+.customFileUpload {
+    display: block;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 13pt;
+    background: rgb(0, 122,255);
+    color: #fff;
+}
+
+.copyDiv {
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 10pt;
+    background: #00a;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#serviceDescriptionInput {
+    resize: none;
+    width: 100%;
+}
