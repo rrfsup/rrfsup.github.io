@@ -409,14 +409,14 @@
             <div id="loadFileButtonsId" class="descriptionDiv"
                  style="display:flex;flex-direction:row;justify-content: space-around;">
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="generateInvoice();">
-                        <input type="button" />
+                    <label class="customFileUpload" style="text-align:center;">
+                        <input id="invoiceButton" type="button" onClick="generateInvoice();" />
                         Invoice
                     </label>
                 </div>
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="generateProposal();">
-                        <input type="button" />
+                    <label class="customFileUpload" style="text-align:center;">
+                        <input id="proposalButton" type="button" onClick="generateProposal();" />
                         Proposal
                     </label>
                 </div>

@@ -158,11 +158,8 @@ function saveData()
 }
 
 function generateInvoice() {
-    alert("GenerateInvoice");
     const { jsPDF } = window.jspdf;
     let pdf = new jsPDF('p', 'mm', 'letter');
-
-    alert(pdf);
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -175,6 +172,7 @@ function generateInvoice() {
     }
 
     pdf.setFont("courier", "normal", "normal");
+    alert("test1");
 
     pdf.setFontSize(12);
     let serviceDate = document.getElementById("invoiceDateInput").value;
@@ -185,6 +183,8 @@ function generateInvoice() {
     pdf.text(month.toString(), 152, 3);
     pdf.text(day.toString(), 161, 3);
     pdf.text(year.toString(), 169, 3);
+
+    alert("test2");
 
     pdf.setFontSize(10);
     // Technician Name
@@ -214,6 +214,8 @@ function generateInvoice() {
     {
         pdf.text("X", 189, 43);
     }
+
+    alert("test3");
 
     pdf.setFontSize(10);
     // Customer Street
@@ -255,6 +257,7 @@ function generateInvoice() {
         pdf.text("X", 211, 34);
     }
 
+    alert("test4");
     // Customer City
     pdf.text(document.getElementById("submitCityInput").value, 7, 57);
 
@@ -339,6 +342,7 @@ function generateInvoice() {
     pdf.text(document.getElementById("guaranteeConditionsInput").value, 50, 263);
     pdf.text(document.getElementById("guaranteeReasonInput").value, 4, 269);
 
+    alert("test5");
     let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice';
     pdf.save(filename);
 }
