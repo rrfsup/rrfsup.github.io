@@ -443,19 +443,57 @@ function generateProposal(currentTime)
 
     let description = document.getElementById("serviceDescriptionInput").value.replace(/[\n]/g, " ").replace(/[\n]/g, " ").replace(/[\r]/g, " ");
 
-    pdf.text(description.substring(0, 80), 22, 72);
-    pdf.text(description.substring(80, 160), 22, 76.25);
-    pdf.text(description.substring(160, 240), 22, 80.5);
-    pdf.text(description.substring(240, 320), 22, 85.75);
-    pdf.text(description.substring(320, 300), 22, 89.5);
-    pdf.text(description.substring(400, 480), 22, 94.75);
-    pdf.text(description.substring(480, 560), 22, 98.5);
-    pdf.text(description.substring(560, 640), 22, 102.75);
-    pdf.text(description.substring(640, 720), 22, 108);
-    pdf.text(description.substring(720, 800), 22, 112.25);
-    pdf.text(description.substring(800, 880), 22, 117);
-    pdf.text(description.substring(880, 960), 22, 121);
-    pdf.text(description.substring(960, 1040), 22, 125.5);
+    let a = 0;
+    let b = (description.substring(a).length < 80) ? (a + 80) : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? a + 80 : description.substring(a, a + 80).lastIndexOf(" "));
+    pdf.text(description.substring(a, b), 22, 72);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 76.25);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 80.5);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 85.75);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 89.5);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 94.75);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 98.5);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 102.75);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 108);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 112.25);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 117);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 121);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 22, 125.5);
 
     let totalCost = parseFloat(document.getElementById("serviceCostsTotalInput").value) || 0;
     let discountAmount = parseFloat(document.getElementById("discountAmountInput").value) || 0;
