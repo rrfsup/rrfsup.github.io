@@ -47,7 +47,7 @@
         pdf.setFontSize(8);
         pdf.text("Generate Three", 100, 100);
         let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-        saveAs(blobPDF, "hello1.pdf");
+        saveAs(blobPDF, "hello3.pdf");
     }
 
     function generateAll()
@@ -93,9 +93,18 @@
 </script>
 
 <body>
-<input type="radio" name="formType" id="radioOne" value="1" onchange="enableButton();">Download Details</input><br>
-<input type="radio" name="formType" id="radioTwo" value="2" onchange="enableButton();">Download Invoice PDF</input><br>
-<input type="radio" name="formType" id="radioThree" value="3" onchange="enableButton();">Download Proposal PDF</input>
+<label for="radioOne">
+    <input type="radio" name="formType" id="radioOne" value="1" onchange="enableButton();" />
+    Download Contract Details<br>
+</label>
+<label for="radioTwo">
+    <input type="radio" name="formType" id="radioTwo" value="2" onchange="enableButton();" />
+    Download Completed Invoice<br>
+</label>
+<label for="radioThree">
+    <input type="radio" name="formType" id="radioThree" value="3" onchange="enableButton();" />
+    Download Completed Excavation Proposal<br>
+</label>
 <input type="button" name="Push" value="Push" id="pushButton" onclick="generateSelection();" style="width:100%" disabled>
 </body>
 </html>
