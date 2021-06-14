@@ -159,7 +159,7 @@ function saveData()
 
 function generateInvoice() {
     const { jsPDF } = window.jspdf;
-    let pdf = new window.jspdf('p', 'mm', 'letter');
+    let pdf = new jsPDF('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
