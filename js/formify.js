@@ -155,10 +155,15 @@ function saveContractDetails()
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
+
 }
 
 function generateInvoice() {
-    const { jsPDF } = window.jspdf;
+    /*
+    if(typeof jsPDF === 'undefined') {
+        const {jsPDF} = window.jspdf;
+    }
+     */
     let pdf = new jsPDF('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
@@ -354,7 +359,11 @@ function generateInvoice() {
 
 function generateProposal()
 {
-    const { jsPDF } = window.jspdf;
+    /*
+    if(typeof jsPDF === 'undefined') {
+        const {jsPDF} = window.jspdf;
+    }
+     */
     let pdf = new jsPDF('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
