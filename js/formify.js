@@ -337,7 +337,19 @@ function generateInvoice() {
     pdf.text(document.getElementById("guaranteeReasonInput").value, 4, 269);
 
     let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice.pdf';
-    pdf.save(filename);
+
+    /*
+    let pdfAttachment = new File([pdf.output('blob')], filename, {
+        type: pdf.output('blob').type,
+        lastModified: pdf.output('blob').lastModified,
+    });
+    let blobUrl = URL.createObjectURL(pdfAttachment);  //<--- THE ERROR APPEARS HERE
+    window.open(blobUrl);  // will open a new tab
+    */
+
+    var blobPDF =  new Blob([ pdf.output('blob'), filename ], { type : 'application/pdf'});
+
+    saveAs(blobPDF, filename);
 }
 
 function generateProposal()
@@ -425,5 +437,8 @@ function generateProposal()
     pdf.text(document.getElementById("serviceDatesEstimateValidInput").value, 124, 232);
 
     let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal.pdf';
-    pdf.save(filename);
+    var blobPDF =  new Blob([ pdf.output('blob'), filename ], { type : 'application/pdf'});
+
+    saveAs(blobPDF, filename);
+    //pdf.save(filename);
 }
