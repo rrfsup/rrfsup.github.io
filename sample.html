@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Title</title>
+    <!--
+    <script type="application/javascript" src="../dev/workspace/rexi/js/jspdf.umd.js"></script>
+    <script type="application/javascript" src="../dev/workspace/rexi/js/FileSaver.js"></script>
+    -->
     <script type="application/javascript" src="js/jspdf.umd.js"></script>
     <script type="application/javascript" src="js/FileSaver.js"></script>
+    <!--
     <script type="application/javascript" src="js/jszip.js"></script>
+    -->
 </head>
 <body>
 <script>
@@ -19,7 +25,7 @@
         pdf.setFontSize(8);
         pdf.text("Generate One", 100, 100);
         let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-        return(blobPDF);
+        saveAs(blobPDF, "hello1.pdf");
     }
 
     function generateTwo()
@@ -30,7 +36,7 @@
         pdf.setFontSize(8);
         pdf.text("Generate Two", 100, 100);
         let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-        return(blobPDF);
+        saveAs(blobPDF, "hello2.pdf");
     }
 
     function generateThree()
@@ -41,7 +47,7 @@
         pdf.setFontSize(8);
         pdf.text("Generate Three", 100, 100);
         let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-        return(blobPDF);
+        saveAs(blobPDF, "hello1.pdf");
     }
 
     function generateAll()
@@ -56,9 +62,40 @@
                 saveAs(blob, "hello." + Date.now() + ".zip");
             });
     }
+
+    function generateSelection()
+    {
+        pushButton = document.getElementById("pushButton");
+        radioOne = document.getElementById("radioOne");
+        radioTwo = document.getElementById("radioTwo");
+        radioThree = document.getElementById("radioThree");
+        if(radioOne.checked) {
+            generateOne();
+        }else if(radioTwo.checked) {
+            generateTwo();
+        }else if(radioThree.checked) {
+            generateThree();
+        }else {
+            alert("Please select form type.")
+        }
+
+        radioOne.checked = false;
+        radioTwo.checked = false;
+        radioThree.checked = false;
+        pushButton.disabled = true;
+    }
+
+    function enableButton()
+    {
+        pushButton = document.getElementById("pushButton");
+        pushButton.disabled = false;
+    }
 </script>
 
 <body>
-    <input type="button" name="Push" value="Push" onclick="generateAll();" style="width:100%">
+<input type="radio" name="formType" id="radioOne" value="1" onchange="enableButton();">Download Details</input><br>
+<input type="radio" name="formType" id="radioTwo" value="2" onchange="enableButton();">Download Invoice PDF</input><br>
+<input type="radio" name="formType" id="radioThree" value="3" onchange="enableButton();">Download Proposal PDF</input>
+<input type="button" name="Push" value="Push" id="pushButton" onclick="generateSelection();" style="width:100%" disabled>
 </body>
 </html>
