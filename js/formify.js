@@ -38,7 +38,7 @@ function escape(str) {
         .replace(/[\t]/g, '\\t');
 }
 
-function loadData() {
+function loadContractDetails() {
     let input = document.getElementById("loadFileInput");
     let file = input.files[0];
     let reader = new FileReader();
@@ -93,7 +93,7 @@ function loadData() {
     };
 }
 
-function saveData()
+function saveContractDetails()
 {
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
