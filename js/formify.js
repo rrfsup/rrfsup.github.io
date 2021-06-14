@@ -164,7 +164,7 @@ function generateInvoice() {
         const {jsPDF} = window.jspdf;
     }
      */
-    let pdf = new jsPDF('p', 'mm', 'letter');
+    var pdf = new jsPDF('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -364,7 +364,7 @@ function generateProposal()
         const {jsPDF} = window.jspdf;
     }
      */
-    let pdf = new jsPDF('p', 'mm', 'letter');
+    var pdf = new jsPDF('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -450,4 +450,5 @@ function generateProposal()
 
     //saveAs(blobPDF, filename);
     pdf.save(filename);
+
 }
