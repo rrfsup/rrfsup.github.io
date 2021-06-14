@@ -337,43 +337,21 @@ function generateInvoice()
     pdf.text(document.getElementById("guaranteeConditionsInput").value, 50, 263);
     pdf.text(document.getElementById("guaranteeReasonInput").value, 4, 269);
 
-
-    /*
-    let pdfAttachment = new File([pdf.output('blob')], filename, {
-        type: pdf.output('blob').type,
-        lastModified: pdf.output('blob').lastModified,
-    });
-    let blobUrl = URL.createObjectURL(pdfAttachment);  //<--- THE ERROR APPEARS HERE
-    window.open(blobUrl);  // will open a new tab
-
-    var link = document.createElement("a");
-    link.download = filename;
-    link.innerHTML = "Download File";
-    link.href = window.URL.createObjectURL(blob);
-    document.body.appendChild(link);
-    */
-
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice';
+    if(invoiceObjectUrl !== null)
+    {
+        window.URL.revokeObjectURL(invoiceObjectUrl);
+    }
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice-' + Date.now() + '.pdf';
     let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
     let downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", window.URL.createObjectURL(blobPDF));
-    downloadAnchorNode.setAttribute("download", filename + ".pdf");
+    invoiceObjectUrl = window.URL.createObjectURL(blobPDF);
+    downloadAnchorNode.setAttribute("href", invoiceObjectUrl);
+    downloadAnchorNode.setAttribute("download", filename);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
-
-    /*
-    pdf.save(filename);
-    delete pdf;
-     */
 }
 
-function saveAllDetails()
-{
-    saveContractDetails();
-    generateInvoice();
-    generateProposal();
-}
 function generateProposal()
 {
     /*
@@ -462,22 +440,17 @@ function generateProposal()
 
     pdf.text(document.getElementById("serviceDatesEstimateValidInput").value, 124, 232);
 
-    //let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal.pdf';
-    //var blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-
-    //saveAs(blobPDF, filename);
-    /*
-    pdf.save(filename);
-    delete pdf;
-    */
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal';
+    if(proposalObjectUrl !== null)
+    {
+        window.URL.revokeObjectURL(proposalObjectUrl);
+    }
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal-' + Date.now() + '.pdf';
     let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
     let downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", window.URL.createObjectURL(blobPDF));
-    downloadAnchorNode.setAttribute("download", filename + ".pdf");
+    proposalObjectUrl = window.URL.createObjectURL(blobPDF);
+    downloadAnchorNode.setAttribute("href", proposalObjectUrl);
+    downloadAnchorNode.setAttribute("download", filename);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
-
-
 }
