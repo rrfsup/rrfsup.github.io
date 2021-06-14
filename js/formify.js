@@ -158,8 +158,11 @@ function saveData()
 }
 
 function generateInvoice() {
+    alert("GenerateInvoice");
     const { jsPDF } = window.jspdf;
     let pdf = new jsPDF('p', 'mm', 'letter');
+
+    alert(pdf);
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -342,8 +345,10 @@ function generateInvoice() {
 
 function generateProposal()
 {
+    alert("GenerateProposal");
     const { jsPDF } = window.jspdf;
     let pdf = new jsPDF('p', 'mm', 'letter');
+    alert(pdf);
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
