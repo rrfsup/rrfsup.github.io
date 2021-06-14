@@ -93,7 +93,7 @@ function loadContractDetails() {
     };
 }
 
-function saveContractDetails()
+function saveContractDetails(currentTime)
 {
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -104,7 +104,6 @@ function saveContractDetails()
         alert("Please populate Invoice Date, Invoice Number and Customer Name to Save.");
         return;
     }
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Details';
 
     let data = '{'
     data += ' "ticketDate" : "' + document.getElementById("invoiceDateInput").value + '",';
@@ -148,17 +147,22 @@ function saveContractDetails()
     data += ' "noGuaranteeReason" : "' + escape(document.getElementById("guaranteeReasonInput").value) + '"';
     data += '}';
 
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Details-' + currentTime + '.json';
     let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(data); //JSON.stringify(document.getElementById("name_input"exportObj));
+    if (document.getElementById("detailsDownloadLink") !== null)
+    {
+        document.getElementById("downloadContractDiv").removeChild(document.getElementById("detailsDownloadLink"));
+    }
     let downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);
-    downloadAnchorNode.setAttribute("download", filename + ".json");
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-
+    downloadAnchorNode.setAttribute("download", filename);
+    downloadAnchorNode.setAttribute("style", "font-size:13pt;");
+    downloadAnchorNode.setAttribute("id", "detailsDownloadLink");
+    downloadAnchorNode.innerHTML = "Download Contract Details...";
+    document.getElementById("downloadContractDiv").appendChild(downloadAnchorNode); // required for firefox
 }
 
-function generateInvoice()
+function generateInvoice(currentTime)
 {
     let pdf = new jsPDF('p', 'mm', 'letter');
 
@@ -292,19 +296,57 @@ function generateInvoice()
 
     let description = document.getElementById("serviceDescriptionInput").value.replace(/[\n]/g, " ").replace(/[\n]/g, " ").replace(/[\r]/g, " ");
 
-    pdf.text(description.substring(0, 79), 7, 98);
-    pdf.text(description.substring(80, 159), 7, 103);
-    pdf.text(description.substring(160, 239), 7, 107);
-    pdf.text(description.substring(240, 319), 7, 112);
-    pdf.text(description.substring(320, 399), 7, 117);
-    pdf.text(description.substring(400, 479), 7, 121);
-    pdf.text(description.substring(480, 559), 7, 125);
-    pdf.text(description.substring(560, 639), 7, 130);
-    pdf.text(description.substring(640, 719), 7, 135);
-    pdf.text(description.substring(720, 799), 7, 139);
-    pdf.text(description.substring(800, 879), 7, 144);
-    pdf.text(description.substring(880, 959), 7, 148);
-    pdf.text(description.substring(960, 1039), 7, 153);
+    let a = 0;
+    let b = (description.substring(a).length < 80) ? (a + 80) : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? a + 80 : description.substring(a, a + 80).lastIndexOf(" "));
+    pdf.text(description.substring(a, b), 7, 98);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 103);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 107);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 112);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 117);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 121);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 125);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 130);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 135);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 139);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 144);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 148);
+
+    a = (b === (a + 80)) ? b : b + 1;
+    b = a + ((description.substring(a).length < 80) ? 80 : ((description.substring(a, a + 80).lastIndexOf(" ") === -1) ? 80 : description.substring(a, a + 80).lastIndexOf(" ")));
+    pdf.text(description.substring(a, b), 7, 153);
 
     // Total Cost
     pdf.setFontSize(8);
@@ -332,27 +374,29 @@ function generateInvoice()
 
     if(document.getElementById("guaranteeExtendedInput").checked)
     {
-        pdf.text("X", 4, 263);
+        pdf.text("X", 5, 263);
     }
-    pdf.text(document.getElementById("guaranteeConditionsInput").value, 50, 263);
+    pdf.text(document.getElementById("guaranteeConditionsInput").value, 54, 263);
     pdf.text(document.getElementById("guaranteeReasonInput").value, 4, 269);
 
-    if(invoiceObjectUrl !== null)
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice-' + currentTime + '.pdf';
+    let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf' });
+    let downloadAnchorNode = document.createElement('a');
+    if (invoiceObjectUrl !== null)
     {
         window.URL.revokeObjectURL(invoiceObjectUrl);
+        document.getElementById("downloadInvoiceDiv").removeChild(document.getElementById("invoiceDownloadLink"));
     }
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice-' + Date.now() + '.pdf';
-    let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-    let downloadAnchorNode = document.createElement('a');
     invoiceObjectUrl = window.URL.createObjectURL(blobPDF);
     downloadAnchorNode.setAttribute("href", invoiceObjectUrl);
     downloadAnchorNode.setAttribute("download", filename);
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
+    downloadAnchorNode.setAttribute("style", "font-size:13pt;");
+    downloadAnchorNode.setAttribute("id", "invoiceDownloadLink");
+    downloadAnchorNode.innerHTML = "Download Invoice...";
+    document.getElementById("downloadInvoiceDiv").appendChild(downloadAnchorNode); // required for firefox
 }
 
-function generateProposal()
+function generateProposal(currentTime)
 {
     /*
     if(typeof jsPDF === 'undefined') {
@@ -377,17 +421,17 @@ function generateProposal()
     let invoiceDate = new Date(document.getElementById("invoiceDateInput").value);
     let invoiceDateString = (invoiceDate.getMonth() + 1) + "/" + invoiceDate.getDate() + "/" + invoiceDate.getFullYear();
 
-    pdf.text(invoiceDateString, 178, 2);
+    pdf.text(invoiceDateString, 178, 1);
 
-    pdf.setFontSize(18);
+    pdf.setFontSize(14);
     pdf.text(document.getElementById("invoiceNumberInput").value, 191, 11);
 
     pdf.setFontSize(10);
-    pdf.text(document.getElementById("submitNameInput").value, 30, 40);
-    pdf.text(document.getElementById("submitStreetInput").value, 30, 45.25);
-    pdf.text(document.getElementById("submitCityInput").value, 30, 49.5);
-    pdf.text(document.getElementById("submitStateInput").value, 30, 53.75);
-    pdf.text(document.getElementById("submitZipInput").value, 89, 53.75);
+    pdf.text(document.getElementById("submitNameInput").value, 32, 40);
+    pdf.text(document.getElementById("submitStreetInput").value, 32, 45.25);
+    pdf.text(document.getElementById("submitCityInput").value, 32, 49.5);
+    pdf.text(document.getElementById("submitStateInput").value, 32, 53.75);
+    pdf.text(document.getElementById("submitZipInput").value, 91, 53.75);
     pdf.text(document.getElementById("submitTelephoneNumberInput").value, 48, 58);
 
     pdf.text(document.getElementById("workAtNameInput").value, 120, 40);
@@ -399,19 +443,19 @@ function generateProposal()
 
     let description = document.getElementById("serviceDescriptionInput").value.replace(/[\n]/g, " ").replace(/[\n]/g, " ").replace(/[\r]/g, " ");
 
-    pdf.text(description.substring(0, 79), 20, 72);
-    pdf.text(description.substring(80, 159), 20, 76.25);
-    pdf.text(description.substring(160, 239), 20, 80.5);
-    pdf.text(description.substring(240, 319), 20, 85.75);
-    pdf.text(description.substring(320, 399), 20, 89.5);
-    pdf.text(description.substring(400, 479), 20, 94.75);
-    pdf.text(description.substring(480, 559), 20, 98.5);
-    pdf.text(description.substring(560, 639), 20, 102.75);
-    pdf.text(description.substring(640, 719), 20, 108);
-    pdf.text(description.substring(720, 799), 20, 112.25);
-    pdf.text(description.substring(800, 879), 20, 117);
-    pdf.text(description.substring(880, 959), 20, 121);
-    pdf.text(description.substring(960, 1039), 20, 125.5);
+    pdf.text(description.substring(0, 80), 22, 72);
+    pdf.text(description.substring(80, 160), 22, 76.25);
+    pdf.text(description.substring(160, 240), 22, 80.5);
+    pdf.text(description.substring(240, 320), 22, 85.75);
+    pdf.text(description.substring(320, 300), 22, 89.5);
+    pdf.text(description.substring(400, 480), 22, 94.75);
+    pdf.text(description.substring(480, 560), 22, 98.5);
+    pdf.text(description.substring(560, 640), 22, 102.75);
+    pdf.text(description.substring(640, 720), 22, 108);
+    pdf.text(description.substring(720, 800), 22, 112.25);
+    pdf.text(description.substring(800, 880), 22, 117);
+    pdf.text(description.substring(880, 960), 22, 121);
+    pdf.text(description.substring(960, 1040), 22, 125.5);
 
     let totalCost = parseFloat(document.getElementById("serviceCostsTotalInput").value) || 0;
     let discountAmount = parseFloat(document.getElementById("discountAmountInput").value) || 0;
@@ -440,17 +484,28 @@ function generateProposal()
 
     pdf.text(document.getElementById("serviceDatesEstimateValidInput").value, 124, 232);
 
-    if(proposalObjectUrl !== null)
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal-' + currentTime + '.pdf';
+    let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf' });
+    let downloadAnchorNode = document.createElement('a');
+    if (proposalObjectUrl !== null)
     {
         window.URL.revokeObjectURL(proposalObjectUrl);
+        document.getElementById("downloadProposalDiv").removeChild(document.getElementById("proposalDownloadLink"));
     }
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal-' + Date.now() + '.pdf';
-    let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
-    let downloadAnchorNode = document.createElement('a');
     proposalObjectUrl = window.URL.createObjectURL(blobPDF);
     downloadAnchorNode.setAttribute("href", proposalObjectUrl);
     downloadAnchorNode.setAttribute("download", filename);
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
+    downloadAnchorNode.setAttribute("style", "font-size:13pt;");
+    downloadAnchorNode.setAttribute("id", "proposalDownloadLink");
+    downloadAnchorNode.innerHTML = "Download Proposal...";
+    document.getElementById("downloadProposalDiv").appendChild(downloadAnchorNode); // required for firefox
+
+}
+
+function generateForms()
+{
+    let currentTime = Date.now();
+    saveContractDetails(currentTime);
+    generateInvoice(currentTime);
+    generateProposal(currentTime);
 }

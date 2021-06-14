@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" href="apple_touch_icon.png">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="application/javascript" src="js/jspdf.umd.js"></script>
-    <script type="application/javascript" src="js/formify.js"></script>
+    <script type="application/javascript" src="js/formify-2.0.js"></script>
     <title>REXI</title>
 </head>
 <body>
@@ -380,18 +380,26 @@
 
     <div id="saveId" class="sectionDiv">
         <div id="saveFileHeaderId" class="headerDiv">
-            <span class="headerSpan">Save File</span>
+            <span class="headerSpan">Generate Links</span>
         </div>
         <div id="saveFileContentId" class="contentDiv">
             <div id="saveFileDeescriptionId" class="descriptionDiv">
-                To save contents of this page to be edited later press <b><i>Save File</i></b>.<br><br>
+                Press the <i><b>Generate Links</b></i> button to create download links for this contract.<br><br>
             </div>
             <div id="saveFileButtonsId" class="descriptionDiv"
                  style="display:flex;flex-direction:row;justify-content: space-around;">
+                <!--
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
                     <label class="customFileUpload" style="text-align:center;" onclick="saveContractDetails();">
                         <input type="button"/>
                         Save File
+                    </label>
+                </div>
+                -->
+                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+                    <label class="customFileUpload" style="text-align:center;" onclick="generateForms();">
+                        <input type="button"/>
+                        Generate Links
                     </label>
                 </div>
             </div>
@@ -400,26 +408,17 @@
 
     <div id="generateId" class="sectionDiv">
         <div id="generateHeaderId" class="headerDiv">
-            <span class="headerSpan">Generate Forms</span>
+            <span class="headerSpan">Form Download</span>
         </div>
         <div id="generateContentId" class="contentDiv">
             <div id="generateDeescriptionId" class="descriptionDiv">
-                Use the following buttons to generate a PDF that can be printed on the Invoice and Excavation Proposal forms.<br><br>
+                Select <b><i>Generate Links</i></b> above to create a Save File and completed Invoice and Excavation Proposal download links.<br><br>
             </div>
-            <div id="generateFormButtonsId" class="descriptionDiv"
-                 style="display:flex;flex-direction:row;justify-content: space-around;">
-                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;">
-                        <input id="invoiceButton" type="button" onClick="generateInvoice();" />
-                        Invoice
-                    </label>
-                </div>
-                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" >
-                        <input id="proposalButton" type="button" onClick="generateProposal();" />
-                        Proposal
-                    </label>
-                </div>
+            <div id="downloadContractDiv" class="descriptionDiv">
+            </div>
+            <div id="downloadInvoiceDiv" class="descriptionDiv">
+            </div>
+            <div id="downloadProposalDiv" class="descriptionDiv">
             </div>
         </div>
     </div>
