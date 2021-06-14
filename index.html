@@ -384,12 +384,33 @@
         </div>
         <div id="saveFileContentId" class="contentDiv">
             <div id="saveFileDeescriptionId" class="descriptionDiv">
+                To save the contents of this page to be edited later and generate PDFs for both the Invoice and Excavation Proposal forms press <b><i>Save Files</i></b>.<br><br>
+            </div>
+            <div id="saveFileButtonsId" class="descriptionDiv"
+                 style="display:flex;flex-direction:row;justify-content: space-around;">
+                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+                    <label class="customFileUpload" style="text-align:center;">
+                        <input type="button" onclick="saveAllDetails();"/>
+                        Save Files
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--
+    <div id="saveId" class="sectionDiv">
+        <div id="saveFileHeaderId" class="headerDiv">
+            <span class="headerSpan">Save File</span>
+        </div>
+        <div id="saveFileContentId" class="contentDiv">
+            <div id="saveFileDeescriptionId" class="descriptionDiv">
                 To save contents of this page to be edited later press <b><i>Save File</i></b>.<br><br>
             </div>
             <div id="saveFileButtonsId" class="descriptionDiv"
                  style="display:flex;flex-direction:row;justify-content: space-around;">
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="saveContractDetails();">
+                    <label class="customFileUpload" style="text-align:center;" onclick="saveAllDetails();">
                         <input type="button"/>
                         Save File
                     </label>
@@ -423,7 +444,7 @@
             </div>
         </div>
     </div>
-
+-->
     <div id="copySectionId" class="sectionDiv">
         <div class="copyDiv">
             Copyright &copy; 2021 - MonB Development - All Rights Reserved

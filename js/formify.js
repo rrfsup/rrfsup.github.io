@@ -368,6 +368,12 @@ function generateInvoice()
      */
 }
 
+function saveAllDetails()
+{
+    saveContractDetails();
+    generateInvoice();
+    generateProposal();
+}
 function generateProposal()
 {
     /*
