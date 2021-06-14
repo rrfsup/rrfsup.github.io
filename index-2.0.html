@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="apple_touch_icon.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="application/javascript" src="js/jspdf.umd.js"></script>
+    <script type="application/javascript" src="js/formify-2.0.js"></script>
+    <title>REXI</title>
+</head>
+<body>
+<div id="parentId" class="parentDiv">
+    <div id="loadId" class="sectionDiv">
+        <div id="loadFileHeaderId" class="headerDiv">
+            <span class="headerSpan">Load File</span>
+        </div>
+        <div id="loadFileContentId" class="contentDiv">
+            <div id="loadFileDeescriptionId" class="descriptionDiv">
+                To load a previously saved file press <b><i>Select File...</i></b> to find file to load, then press
+                <b><i>Load File</i></b> to populate fields.<br><br>
+            </div>
+            <div id="loadFileButtonsId" class="descriptionDiv"
+                 style="display:flex;flex-direction:row;justify-content: space-around;">
+                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+                    <label class="customFileUpload" style="text-align:center;">
+                        <input id="loadFileInput" type="file" onChange="displayFileName();"/>
+                        Select File...
+                    </label>
+                </div>
+                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+                    <label class="customFileUpload" style="text-align:center;" onclick="loadContractDetails();">
+                        <input type="button"/>
+                        Load File
+                    </label>
+                </div>
+            </div>
+            <div id="loadFileSelectedId" class="descriptionDiv" style="text-align:center;">
+                <span id="fileNameSpan"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="invoiceId" class="sectionDiv">
+        <div id="invoiceHeaderId" class="headerDiv">
+            <span class="headerSpan">Invoice Details</span>
+        </div>
+        <div id="invoiceContentId" class="contentDiv">
+            <div id="invoiceDateLabelId" class="labelDiv">
+                Date of Service
+            </div>
+            <div id="invoiceDateInputId" class="textInputDiv">
+                <input id="invoiceDateInput" type="date" class="fixedTextInput">
+            </div>
+            <div id="invoiceNumberId" class="labelDiv">
+                Invoice Number
+            </div>
+            <div id="invoiceNumberInputId" class="textInputDiv" style="text-align: left;">
+                <div style="display:flex;flex-direction:row;">
+                    <div style="display:flex;flex-direction:column;padding:1px;">
+                        <input id="invoiceNumberStatic" type="text" class="textInput" value="30-"
+                               style="text-align: right;color:#0000ff;" maxlength="3" size="3" disabled>
+                    </div>
+                    <div style="display:flex;flex-direction:column;padding:1px;">
+                        <input id="invoiceNumberInput" type="tel" class="textInput" style="color:#f00;"
+                               data-maxlength="8" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+                    </div>
+                </div>
+            </div>
+            <div id="invoiceTechNameLabelId" class="labelDiv">
+                Service Technician Name
+            </div>
+            <div id="invoiceTechNameInputId" class="textInputDiv">
+                <input id="invoiceTechNameInput" type="text" class="textInput">
+            </div>
+            <div id="invoiceTechNumberLabelId" class="labelDiv">
+                Service Technician Number
+            </div>
+            <div id="invoiceTechNumberInputId" class="textInputDiv">
+                <input id="invoiceTechNumberInput" type="tel" class="textInput" data-maxlength="4"
+                       oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+            </div>
+            <div id="invoiceTypeOfWorkLabelId" class="labelDiv">
+                <hr>
+                Type of Work
+            </div>
+            <div id="invoiceTypeOfWorkInputId" class="labelDiv">
+                <div style="display:flex;flex-direction:row;justify-content: space-around;">
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceTypeOfWorkSewerLabel" for="invoiceTypeOfWorkSewerInput" style="color:#666;">
+                            <input id="invoiceTypeOfWorkSewerInput" type="checkbox">
+                            Sewer &amp; Drain
+                        </label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceTypeOfWorkPlumbingLabel" for="invoiceTypeOfWorkPlumbingInput"
+                               style="color:#666;">
+                            <input id="invoiceTypeOfWorkPlumbingInput" type="checkbox">
+                            Plumbing
+                        </label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceTypeOfWorkPumpingLabel" for="invoiceTypeOfWorkPumpingInput"
+                               style="color:#666;">
+                            <input id="invoiceTypeOfWorkPumpingInput" type="checkbox">
+                            Pumping
+                        </label>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:row;justify-content: space-around;">
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceTypeOfWorkIndustrialLabel" for="invoiceTypeOfWorkIndustrialInput"
+                               style="color:#666;">
+                            <input id="invoiceTypeOfWorkIndustrialInput" type="checkbox">
+                            Industrial
+                        </label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceTypeOfWorkExcavationLabel" for="invoiceTypeOfWorkExcavationInput"
+                               style="color:#666;">
+                            <input id="invoiceTypeOfWorkExcavationInput" type="checkbox">
+                            Excavation
+                        </label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceTypeOfWorkDrainTileLabel" for="invoiceTypeOfWorkDrainTileInput"
+                               style="color:#666;">
+                            <input id="invoiceTypeOfWorkDrainTileInput" type="checkbox">
+                            Drain Tile
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="invoiceCustomerClassLabelId" class="labelDiv">
+                <hr>
+                Customer Class
+            </div>
+            <div id="invoiceCustomerClassInputId" class="labelDiv">
+                <div style="display:flex;flex-direction:row;justify-content: space-around;">
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceCustomerClassResidentialLabel" for="invoiceCustomerClassResidentialInput"
+                               style="color:#666;">
+                            <input id="invoiceCustomerClassResidentialInput" type="checkbox">
+                            Residential
+                        </label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                        <label id="invoiceCustomerClassCommercialLabel" for="invoiceCustomerClassCommercialInput"
+                               style="color:#666;">
+                            <input id="invoiceCustomerClassCommercialInput" type="checkbox">
+                            Commercial
+                        </label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;width:33%;padding:1px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="submitId" class="sectionDiv">
+        <div id="submitHeaderId" class="headerDiv">
+            <span class="headerSpan">Customer Details</span>
+        </div>
+        <div id="submitContentId" class="contentDiv">
+            <div id="submitNameLabelId" class="labelDiv">
+                Customer Name
+            </div>
+            <div id="submitNameInputId" class="textInputDiv">
+                <input id="submitNameInput" type="text" class="textInput">
+            </div>
+            <div id="submitNumberLabelId" class="labelDiv">
+                Customer Number
+            </div>
+            <div id="submitNumberInputId" class="textInputDiv">
+                <input id="submitNumberInput" type="text" class="textInput">
+            </div>
+            <div id="submitStreetLabelId" class="labelDiv">
+                Street
+            </div>
+            <div id="submitStreetInputId" class="textInputDiv">
+                <input id="submitStreetInput" type="text" class="textInput">
+            </div>
+            <div id="submitCityLabelId" class="labelDiv">
+                City
+            </div>
+            <div id="submitCityInputId" class="textInputDiv">
+                <input id="submitCityInput" type="text" class="textInput">
+            </div>
+            <div id="submitStateLabelId" class="labelDiv">
+                State
+            </div>
+            <div id="submitStateInputId" class="textInputDiv">
+                <input id="submitStateInput" type="text" class="textInput">
+            </div>
+            <div id="submitZipLabelId" class="labelDiv">
+                ZIP
+            </div>
+            <div id="submitZipInputId" class="numberInputDiv">
+                <input id="submitZipInput" type="tel" class="numberInput">
+            </div>
+            <div id="submitTelephoneNumberLabelId" class="labelDiv">
+                Telephone Number
+            </div>
+            <div id="submitTelephoneNumberInputId" class="telInputDiv">
+                <input id="submitTelephoneNumberInput" type="tel" class="telInput">
+            </div>
+            <div id="submitPoNumberLabelId" class="labelDiv">
+                <hr>
+                P.O Number/Authorization
+            </div>
+            <div id="submitPoNumberInputId" class="textInputDiv">
+                <input id="submitPoNumberInput" type="text" class="textInput">
+            </div>
+        </div>
+    </div>
+    <div id="workAtId" class="sectionDiv">
+        <div id="workAtHeaderId" class="headerDiv">
+            <span class="headerSpan">Service Location Details</span>
+        </div>
+        <div id="workAtContentId" class="contentDiv">
+            <div id="workAtCopyAddressLabelId" class="labelDiv">
+                <label id="workAtCopyAddressLabel" for="workAtCopyAddressInput">
+                    <input id="workAtCopyAddressInput" type="checkbox" onchange="copyAddress();">
+                    <i>Use Customer Details</i>
+                </label>
+                <hr>
+            </div>
+            <div id="workAtNameLabelId" class="labelDiv">
+                Name
+            </div>
+            <div id="workAtNameInputId" class="textInputDiv">
+                <input id="workAtNameInput" type="text" class="textInput">
+            </div>
+            <div id="workAtStreetLabelId" class="labelDiv">
+                Street
+            </div>
+            <div id="workAtStreetInputId" class="textInputDiv">
+                <input id="workAtStreetInput" type="text" class="textInput">
+            </div>
+            <div id="workAtCityLabelId" class="labelDiv">
+                City
+            </div>
+            <div id="workAtCityInputId" class="textInputDiv">
+                <input id="workAtCityInput" type="text" class="textInput">
+            </div>
+            <div id="workAtStateLabelId" class="labelDiv">
+                State
+            </div>
+            <div id="workAtStateInputId" class="textInputDiv">
+                <input id="workAtStateInput" type="text" class="textInput">
+            </div>
+            <div id="workAtZipLabelId" class="labelDiv">
+                ZIP
+            </div>
+            <div id="workAtZipInputId" class="textInputDiv">
+                <input id="workAtZipInput" type="tel" class="numberInput">
+            </div>
+            <div id="workAtTelephoneNumberLabelId" class="labelDiv">
+                Telephone Number
+            </div>
+            <div id="workAtTelephoneNumberInputId" class="telInputDiv">
+                <input id="workAtTelephoneNumberInput" type="tel" class="telInput">
+            </div>
+        </div>
+    </div>
+    <div id="serviceDatesId" class="sectionDiv">
+        <div id="serviceDatesHeaderId" class="headerDiv">
+            <span class="headerSpan">Service Dates</span>
+        </div>
+        <div id="serviceDatesContentId" class="contentDiv">
+            <div id="serviceDatesStartLabelId" class="labelDiv">
+                Approximate Start Date
+            </div>
+            <div id="serviceDatesStartInputId" class="telInputDiv">
+                <input id="serviceDatesStartInput" type="date" class="fixedTextInput">
+            </div>
+            <div id="serviceDatesCompleteLabelId" class="labelDiv">
+                Approximate Completion Date
+            </div>
+            <div id="serviceDatesCompleteInputId" class="telInputDiv">
+                <input id="serviceDatesCompleteInput" type="date" class="fixedTextInput">
+            </div>
+            <div id="serviceDatesEstimateValidLabelId" class="labelDiv">
+                Estimate Valid (days)
+            </div>
+            <div id="serviceDatesEstimateValidInputId" class="telInputDiv">
+                <input id="serviceDatesEstimateValidInput" class="textInput" type="tel" size="3" maxlength="3">
+            </div>
+        </div>
+    </div>
+    <div id="serviceCostsId" class="sectionDiv">
+        <div id="serviceCostsHeaderId" class="headerDiv">
+            <span class="headerSpan">Service Costs</span>
+        </div>
+        <div id="serviceCostsContentId" class="contentDiv">
+            <div id="serviceCostsTotalLabelId" class="labelDiv">
+                Total Cost
+            </div>
+            <div id="serviceCostsTotalInputId" class="textInputDiv">
+                <input id="serviceCostsTotalInput" type="text" class="textInput">
+            </div>
+            <div id="serviceCostsPercentExecutionLabelId" class="labelDiv">
+                Percent At Execution
+            </div>
+            <div id="serviceCostsPercentExecutionInputId" class="telInputDiv">
+                <input id="serviceCostsPercentExecutionInput" class="textInput" type="tel" size="3" maxlength="3">
+            </div>
+            <div id="serviceCostsPercentStartLabelId" class="labelDiv">
+                Percent At Start
+            </div>
+            <div id="serviceCostsPercentStartInputId" class="telInputDiv">
+                <input id="serviceCostsPercentStartInput" class="textInput" type="tel" size="3" maxlength="3">
+            </div>
+        </div>
+    </div>
+    <div id="serviceDescriptionId" class="sectionDiv">
+        <div id="serviceDescriptionHeaderId" class="headerDiv">
+            <span class="headerSpan">Service Description</span>
+        </div>
+        <div id="serviceDescriptionContentId" class="contentDiv">
+            <div id="serviceDescriptionInputId" class="labelDiv">
+                <textarea id="serviceDescriptionInput" rows=10 class="textInput"></textarea>
+            </div>
+        </div>
+    </div>
+
+   <div id="discountId" class="sectionDiv">
+        <div id="discountHeaderId" class="headerDiv">
+            <span class="headerSpan">Discount</span>
+       </div>
+       <div id="discountsContentId" class="contentDiv">
+           <div id="discountAmountLabelId" class="labelDiv">
+               Discount Amount
+           </div>
+           <div id="discountAmountInputId" class="textInputDiv">
+               <input id="discountAmountInput" type="text" class="textInput">
+           </div>
+           <div id="discountDescriptionLabelId" class="labelDiv">
+               Discount Description
+           </div>
+           <div id="discountDescriptionInputId" class="textInputDiv">
+               <input id="discountDescriptionInput" type="text" class="textInput">
+           </div>
+       </div>
+   </div>
+
+    <div id="guaranteeId" class="sectionDiv">
+        <div id="guaranteeHeaderId" class="headerDiv">
+            <span class="headerSpan">Guarantee</span>
+        </div>
+        <div id="guaranteeContentId" class="contentDiv">
+            <div id="guaranteeExtendedLabelId" class="labelDiv">
+                <div style="display:flex;flex-direction:row;justify-content: space-around;">
+                    <div style="display:flex;flex-direction:column;width:100%;padding:1px;">
+                        <label id="guaranteeExtendedLabel" for="guaranteeExtendedInput"
+                               style="color:#666;">
+                            <input id="guaranteeExtendedInput" type="checkbox">
+                            Extended Guarantee
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="guaranteeConditionsLabelId" class="labelDiv">
+                <br>
+                Special Conditions
+            </div>
+            <div id="guaranteeConditionsInputId" class="textInputDiv">
+                <input id="guaranteeConditionsInput" type="text" class="textInput">
+            </div>
+            <div id="guaranteeReasonLabelId" class="labelDiv">
+                <hr>
+                    Reason For No Guarantee
+            </div>
+            <div id="guaranteeReasonInputId" class="textInputDiv">
+                <input id="guaranteeReasonInput" type="text" class="textInput">
+            </div>
+        </div>
+    </div>
+
+    <div id="saveId" class="sectionDiv">
+        <div id="saveFileHeaderId" class="headerDiv">
+            <span class="headerSpan">Save File</span>
+        </div>
+        <div id="saveFileContentId" class="contentDiv">
+            <div id="saveFileDeescriptionId" class="descriptionDiv">
+                To save contents of this page to be edited later press <b><i>Save File</i></b>.<br><br>
+            </div>
+            <div id="saveFileButtonsId" class="descriptionDiv"
+                 style="display:flex;flex-direction:row;justify-content: space-around;">
+                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+                    <label class="customFileUpload" style="text-align:center;" onclick="saveContractDetails();">
+                        <input type="button"/>
+                        Save File
+                    </label>
+                </div>
+                <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
+                    <label class="customFileUpload" style="text-align:center;" onclick="generateForms();">
+                        <input type="button"/>
+                        Generate Forms
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="generateId" class="sectionDiv">
+        <div id="generateHeaderId" class="headerDiv">
+            <span class="headerSpan">Form Download</span>
+        </div>
+        <div id="generateContentId" class="contentDiv">
+            <div id="generateDeescriptionId" class="descriptionDiv">
+                Select <b><i>Generate</i></b> above to create completed Invoice and Excavation Proposal download links.
+            </div>
+            <div id="downloadInvoiceDiv" class="descriptionDiv">
+            </div>
+            <div id="downloadProposalDiv" class="descriptionDiv">
+            </div>
+        </div>
+    </div>
+
+    <div id="copySectionId" class="sectionDiv">
+        <div class="copyDiv">
+            Copyright &copy; 2021 - MonB Development - All Rights Reserved
+        </div>
+    </div>
+</div>
+<script>
+    const {jsPDF} = window.jspdf;
+    let invoiceObjectUrl = null;
+    let proposalObjectUrl = null;
+</script>
+</body>
+</html>
