@@ -343,7 +343,7 @@ function generateInvoice() {
     pdf.text(document.getElementById("guaranteeReasonInput").value, 4, 269);
 
     alert("test5");
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice';
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice.pdf';
     pdf.save(filename);
 }
 
@@ -433,6 +433,6 @@ function generateProposal()
 
     pdf.text(document.getElementById("serviceDatesEstimateValidInput").value, 124, 232);
 
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal';
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal.pdf';
     pdf.save(filename);
 }
