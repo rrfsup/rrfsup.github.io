@@ -158,13 +158,9 @@ function saveContractDetails()
 
 }
 
-function generateInvoice() {
-    /*
-    if(typeof jsPDF === 'undefined') {
-        const {jsPDF} = window.jspdf;
-    }
-     */
-    pdf = new jsPDF('p', 'mm', 'letter');
+function generateInvoice()
+{
+    let pdf = new jsPDF('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -341,7 +337,6 @@ function generateInvoice() {
     pdf.text(document.getElementById("guaranteeConditionsInput").value, 50, 263);
     pdf.text(document.getElementById("guaranteeReasonInput").value, 4, 269);
 
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice.pdf';
 
     /*
     let pdfAttachment = new File([pdf.output('blob')], filename, {
@@ -350,12 +345,27 @@ function generateInvoice() {
     });
     let blobUrl = URL.createObjectURL(pdfAttachment);  //<--- THE ERROR APPEARS HERE
     window.open(blobUrl);  // will open a new tab
+
+    var link = document.createElement("a");
+    link.download = filename;
+    link.innerHTML = "Download File";
+    link.href = window.URL.createObjectURL(blob);
+    document.body.appendChild(link);
     */
 
-    //var blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Invoice';
+    let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
+    let downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", window.URL.createObjectURL(blobPDF));
+    downloadAnchorNode.setAttribute("download", filename + ".pdf");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
 
+    /*
     pdf.save(filename);
     delete pdf;
+     */
 }
 
 function generateProposal()
@@ -446,12 +456,22 @@ function generateProposal()
 
     pdf.text(document.getElementById("serviceDatesEstimateValidInput").value, 124, 232);
 
-    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal.pdf';
+    //let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal.pdf';
     //var blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
 
     //saveAs(blobPDF, filename);
+    /*
     pdf.save(filename);
-
     delete pdf;
+    */
+    let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal';
+    let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
+    let downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", window.URL.createObjectURL(blobPDF));
+    downloadAnchorNode.setAttribute("download", filename + ".pdf");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+
 
 }
