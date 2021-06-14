@@ -1,153 +1,6 @@
-@page
-{
-    size: 8.5in 11in;
-}
-
-@media print
-{
-    body {
-        font:10px Courier New, monospace;
-        margin: 0mm;
-    }
-
-    .noPrint, *.noPrint {
-        display: none !important;
-    }
-
-    .parentDiv {
-        position: unset;
-    }
-
-    .sectionDiv {
-        position: unset;
-    }
-
-    .headerDiv {
-        display: none !important;
-    }
-
-    .contentDiv {
-        position: unset;
-    }
-
-    .labelDiv {
-        display: none !important;
-    }
-
-    .textInputDiv {
-        font: 10px Courier New, monospace;
-    }
-
-    /*
-     * Proposal Submitted To Input Print Alignment
-     */
-    #submitNameInputId {
-        position: absolute;
-        top: 36mm;
-        left: 32mm;
-    }
-
-    #submitStreetInputId {
-        position: absolute;
-        top: 40mm;
-        left: 32mm;
-    }
-
-    #submitCityInputId {
-        position: absolute;
-        top: 44mm;
-        left: 32mm;
-    }
-
-    #submitStateInputId {
-        position: absolute;
-        top: 48mm;
-        left: 32mm;
-    }
-
-    #submitZipInputId {
-        position: absolute;
-        top: 48mm;
-        left: 88mm;
-    }
-
-    #submitTelephoneNumberInputId {
-        position: absolute;
-        top: 52mm;
-        left: 47mm;
-    }
-
-    /*
-     * Work To Be Performed At Input Print Alignment
-     */
-    #workAtNameInputId {
-        position: absolute;
-        top: 36mm;
-        left: 118mm;
-    }
-
-    #workAtStreetInputId {
-        position: absolute;
-        top: 40mm;
-        left: 118mm;
-    }
-
-    #workAtCityInputId {
-        position: absolute;
-        top: 44mm;
-        left: 118mm;
-    }
-
-    #workAtStateInputId {
-        position: absolute;
-        top: 48mm;
-        left: 118mm;
-    }
-
-    #workAtZipInputId {
-        position: absolute;
-        top: 48mm;
-        left: 169mm;
-    }
-
-    #workAtTelephoneNumberInputId {
-        position: absolute;
-        top: 52mm;
-        left: 133mm;
-    }
-
-
-    /*
-     * Input Field Print Styles
-     */
-    .textInput {
-        border: none;
-        box-shadow: none;
-        vertical-align: middle;
-        font: 10pt Courier New, monospace;
-        font-weight: bold;
-    }
-
-    .numberInput {
-        border: none;
-        box-shadow: none;
-        vertical-align: middle;
-        font: 10pt Courier New, monospace;
-        font-weight: bold;
-    }
-
-    .telInput {
-        border: none;
-        box-shadow: none;
-        vertical-align: middle;
-        font: 10pt Courier New, monospace;
-        font-weight: bold;
-    }
-}
-
 .parentDiv {
-    margin: 0px;
-    padding: 0px;
+    margin: 0px 0px 30px 0px;
+    padding-bottom: 16px;
     text-align: center;
 }
 
@@ -280,4 +133,34 @@ input[type="button"] {
 #serviceDescriptionInput {
     resize: none;
     width: 100%;
+}
+
+.navbar {
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 13pt;
+    overflow: hidden;
+    background-color: rgb(0, 122, 255);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background: #f1f1f1;
+    color: black;
+}
+
+.navbar a.active {
+    background-color: #04AA6D;
+    color: white;
 }

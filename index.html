@@ -29,7 +29,7 @@
                     </label>
                 </div>
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="generateInvoice();">
+                    <label class="customFileUpload" style="text-align:center;" onclick="loadData();">
                         <input type="button"/>
                         Load File
                     </label>
@@ -63,7 +63,7 @@
                     </div>
                     <div style="display:flex;flex-direction:column;padding:1px;">
                         <input id="invoiceNumberInput" type="tel" class="textInput" style="color:#f00;"
-                               data-maxlength="6" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
+                               data-maxlength="8" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@
         <div id="workAtContentId" class="contentDiv">
             <div id="workAtCopyAddressLabelId" class="labelDiv">
                 <label id="workAtCopyAddressLabel" for="workAtCopyAddressInput">
-                    <input id="workAtCopyAddressInput" type="checkbox">
+                    <input id="workAtCopyAddressInput" type="checkbox" onchange="copyAddress();">
                     <i>Use Customer Details</i>
                 </label>
                 <hr>
@@ -300,17 +300,17 @@
             <div id="serviceCostsTotalInputId" class="textInputDiv">
                 <input id="serviceCostsTotalInput" type="text" class="textInput">
             </div>
-            <div id="serviceCostsEstimateValidLabelId" class="labelDiv">
+            <div id="serviceCostsPercentExecutionLabelId" class="labelDiv">
                 Percent At Execution
             </div>
-            <div id="workAtTelephoneNumberInputId" class="telInputDiv">
-                <input id="serviceCostsEstimateValidInput" class="textInput" type="tel" size="3" maxlength="3">
+            <div id="serviceCostsPercentExecutionInputId" class="telInputDiv">
+                <input id="serviceCostsPercentExecutionInput" class="textInput" type="tel" size="3" maxlength="3">
             </div>
-            <div id="serviceCostsEstimateValidLabelId" class="labelDiv">
+            <div id="serviceCostsPercentStartLabelId" class="labelDiv">
                 Percent At Start
             </div>
-            <div id="workAtTelephoneNumberInputId" class="telInputDiv">
-                <input id="serviceCostsEstimateValidInput" class="textInput" type="tel" size="3" maxlength="3">
+            <div id="serviceCostsPercentStartInputId" class="telInputDiv">
+                <input id="serviceCostsPercentStartInput" class="textInput" type="tel" size="3" maxlength="3">
             </div>
         </div>
     </div>
@@ -356,10 +356,17 @@
                         <label id="guaranteeExtendedLabel" for="guaranteeExtendedInput"
                                style="color:#666;">
                             <input id="guaranteeExtendedInput" type="checkbox">
-                            Extended Guarantee - 1 year
+                            Extended Guarantee
                         </label>
                     </div>
                 </div>
+            </div>
+            <div id="guaranteeConditionsLabelId" class="labelDiv">
+                <br>
+                Special Conditions
+            </div>
+            <div id="guaranteeConditionsInputId" class="textInputDiv">
+                <input id="guaranteeConditionsInput" type="text" class="textInput">
             </div>
             <div id="guaranteeReasonLabelId" class="labelDiv">
                 <hr>
@@ -382,7 +389,7 @@
             <div id="saveFileButtonsId" class="descriptionDiv"
                  style="display:flex;flex-direction:row;justify-content: space-around;">
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="generateInvoice();">
+                    <label class="customFileUpload" style="text-align:center;" onclick="saveData();">
                         <input type="button"/>
                         Save File
                     </label>
@@ -408,7 +415,7 @@
                     </label>
                 </div>
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="generateInvoice();">
+                    <label class="customFileUpload" style="text-align:center;">
                         <input type="button" onclick="generateProposal();" />
                         Proposal
                     </label>
