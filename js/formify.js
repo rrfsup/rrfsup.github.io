@@ -159,7 +159,7 @@ function saveData()
 
 function generateInvoice() {
     const { jsPDF } = window.jspdf;
-    let pdf = new jsPDF('p', 'mm', 'letter');
+    let pdf = new window.jspdf('p', 'mm', 'letter');
 
     let ticketDate = document.getElementById("invoiceDateInput");
     let ticketNumber = document.getElementById("invoiceNumberInput");
@@ -347,9 +347,9 @@ function generateInvoice() {
     window.open(blobUrl);  // will open a new tab
     */
 
-    var blobPDF =  new Blob([ pdf.output('blob'), filename ], { type : 'application/pdf'});
+    //var blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
 
-    saveAs(blobPDF, filename);
+    pdf.save(filename);
 }
 
 function generateProposal()
@@ -437,8 +437,8 @@ function generateProposal()
     pdf.text(document.getElementById("serviceDatesEstimateValidInput").value, 124, 232);
 
     let filename = ticketDate.value.replaceAll('-', '') + '-' + ticketNumber.value + '-' + submittedName.value.replaceAll(' ', '_') + '-Proposal.pdf';
-    var blobPDF =  new Blob([ pdf.output('blob'), filename ], { type : 'application/pdf'});
+    //var blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
 
-    saveAs(blobPDF, filename);
-    //pdf.save(filename);
+    //saveAs(blobPDF, filename);
+    pdf.save(filename);
 }
