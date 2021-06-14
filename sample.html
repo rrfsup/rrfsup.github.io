@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../dev/workspace/rexi/js/jspdf.umd.js"></script>
+    <script type="application/javascript" src="../dev/workspace/rexi/js/FileSaver.js"></script>
+    <script type="application/javascript" src="../dev/workspace/rexi/js/jszip.js"></script>
+</head>
+<body>
+<script>
+
+    function generateOne()
+    {
+        const {jsPDF} = window.jspdf;
+        pdf = new jsPDF('p', 'mm', 'letter');
+        pdf.setFont("courier", "normal", "normal");
+        pdf.setFontSize(8);
+        pdf.text("Generate One", 100, 100);
+        let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
+        return(blobPDF);
+    }
+
+    function generateTwo()
+    {
+        const {jsPDF} = window.jspdf;
+        pdf = new jsPDF('p', 'mm', 'letter');
+        pdf.setFont("courier", "normal", "normal");
+        pdf.setFontSize(8);
+        pdf.text("Generate Two", 100, 100);
+        let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
+        return(blobPDF);
+    }
+
+    function generateThree()
+    {
+        const {jsPDF} = window.jspdf;
+        pdf = new jsPDF('p', 'mm', 'letter');
+        pdf.setFont("courier", "normal", "normal");
+        pdf.setFontSize(8);
+        pdf.text("Generate Three", 100, 100);
+        let blobPDF =  new Blob([ pdf.output('blob') ], { type : 'application/pdf'});
+        return(blobPDF);
+    }
+
+    function generateAll()
+    {
+        zip = new JSZip();
+        zip.file("one.pdf", generateOne());
+        zip.file("two.pdf", generateTwo());
+        zip.file("three.pdf", generateThree());
+
+        zip.generateAsync({type:"blob"})
+            .then(function (blob) {
+                saveAs(blob, "hello." + Date.now() + ".zip");
+            });
+    }
+</script>
+
+<body>
+    <input type="button" name="Push" value="Push" onclick="generateAll();">
+</body>
+</html>
