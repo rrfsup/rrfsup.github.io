@@ -23,16 +23,16 @@
             <div id="loadFileButtonsId" class="descriptionDiv"
                  style="display:flex;flex-direction:row;justify-content: space-around;">
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;">
-                        <input id="loadFileInput" type="file" onChange="displayFileName();"/>
+                    <label class="customFileUpload" for="loadFileInput" style="text-align:center;">
                         Select File...
                     </label>
+                    <input id="loadFileInput" type="file" onChange="displayFileName();"/>
                 </div>
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="loadContractDetails();">
-                        <input type="button"/>
+                    <label class="customFileUpload" for="loadFileButton" style="text-align:center;" onclick="loadContractDetails();">
                         Load File
                     </label>
+                    <input id="loadFileButton" type="button"/>
                 </div>
             </div>
             <div id="loadFileSelectedId" class="descriptionDiv" style="text-align:center;">
@@ -434,7 +434,7 @@
 
     <div id="copySectionId" class="sectionDiv">
         <div class="copyDiv">
-            Copyright &copy; 2021 - MonB Development - All Rights Reserved v1.0
+            Copyright &copy; 2021 - MonB Development - All Rights Reserved v1.1
         </div>
     </div>
 </div>
