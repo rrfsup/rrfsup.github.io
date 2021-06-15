@@ -432,7 +432,7 @@ function generateProposal(currentTime)
     let invoiceDate = new Date(document.getElementById("invoiceDateInput").value);
     let invoiceDateString = (invoiceDate.getMonth() + 1) + "/" + invoiceDate.getDate() + "/" + invoiceDate.getFullYear();
 
-    pdf.text(invoiceDateString, 178 + iX, 1 + iY);
+    pdf.text(invoiceDateString, 178 + iX, 2 + iY);
 
     pdf.setFontSize(14);
     pdf.text(document.getElementById("invoiceNumberInput").value, 191 + iX, 11 + iY);
