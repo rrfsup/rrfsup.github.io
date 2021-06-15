@@ -383,7 +383,16 @@
             <span class="headerSpan">Generate Links</span>
         </div>
         <div id="saveFileContentId" class="contentDiv">
+            <div id="iosDeviceDivId" class="labelDiv">
+                <div style="display:flex;flex-direction:column;width:100%;padding:1px;">
+                    <label id="osDeviceLabelId" for="iosDevice" style="color:#666;">
+                        <input id="iosDevice" type="checkbox">
+                        iOS Device Printing Support
+                    </label>
+                </div>
+            </div>
             <div id="saveFileDeescriptionId" class="descriptionDiv">
+                <hr>
                 Press the <i><b>Generate Links</b></i> button to create download links for this contract.<br><br>
             </div>
             <div id="saveFileButtonsId" class="descriptionDiv"
@@ -397,10 +406,10 @@
                 </div>
                 -->
                 <div style="display:flex;flex-direction:column;width:50%;padding:1px;">
-                    <label class="customFileUpload" style="text-align:center;" onclick="generateForms();">
-                        <input type="button"/>
+                    <label class="customFileUpload" for="generateLinksButton" style="text-align:center;" onclick="generateForms();">
                         Generate Links
                     </label>
+                    <input id="generateLinksButton" type="button"/>
                 </div>
             </div>
         </div>
@@ -425,7 +434,7 @@
 
     <div id="copySectionId" class="sectionDiv">
         <div class="copyDiv">
-            Copyright &copy; 2021 - MonB Development - All Rights Reserved
+            Copyright &copy; 2021 - MonB Development - All Rights Reserved v1.0
         </div>
     </div>
 </div>
