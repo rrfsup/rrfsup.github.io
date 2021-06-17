@@ -430,7 +430,7 @@ function generateProposal(currentTime)
 
     pdf.setFontSize(8);
     let invoiceDate = new Date(document.getElementById("invoiceDateInput").value);
-    let invoiceDateString = (invoiceDate.getMonth() + 1) + "/" + invoiceDate.getDate() + "/" + invoiceDate.getFullYear();
+    let invoiceDateString = (invoiceDate.getUTCMonth() + 1) + "/" + invoiceDate.getUTCDate() + "/" + invoiceDate.getUTCFullYear();
 
     pdf.text(invoiceDateString, 178 + iX, 2 + iY);
 
