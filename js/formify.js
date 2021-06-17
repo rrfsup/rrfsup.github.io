@@ -296,8 +296,8 @@ function generateInvoice(currentTime)
     let startDate = new Date(document.getElementById("serviceDatesStartInput").value);
     let completeDate = new Date(document.getElementById("serviceDatesCompleteInput").value);
 
-    let startDateString = (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear();
-    let completeDateString = (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear();
+    let startDateString = (startDate.getUTCMonth() + 1) + "/" + startDate.getUTCDate() + "/" + startDate.getUTCFullYear();
+    let completeDateString = (completeDate.getUTCMonth() + 1) + "/" + completeDate.getUTCDate() + "/" + completeDate.getUTCFullYear();
 
     pdf.text(startDateString, 121 + iX, 88 + iY);
     pdf.text(completeDateString, 9 + iX, 93 + iY);
@@ -526,8 +526,8 @@ function generateProposal(currentTime)
     let startDate = new Date(document.getElementById("serviceDatesStartInput").value);
     let completeDate = new Date(document.getElementById("serviceDatesCompleteInput").value);
 
-    let startDateString = (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear();
-    let completeDateString = (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear();
+    let startDateString = (startDate.getUTCMonth() + 1) + "/" + startDate.getUTCDate() + "/" + startDate.getUTCFullYear();
+    let completeDateString = (completeDate.getUTCMonth() + 1) + "/" + completeDate.getUTCDate() + "/" + completeDate.getUTCFullYear();
     pdf.text(startDateString, 75 + iX, 162 + iY);
     pdf.text(completeDateString, 172 + iX, 162 + iY);
 
