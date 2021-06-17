@@ -429,8 +429,15 @@ function generateProposal(currentTime)
     pdf.setFont("courier", "normal", "normal");
 
     pdf.setFontSize(8);
-    let invoiceDate = new Date(document.getElementById("invoiceDateInput").value);
-    let invoiceDateString = (invoiceDate.getUTCMonth() + 1) + "/" + invoiceDate.getUTCDate() + "/" + invoiceDate.getUTCFullYear();
+    let serviceDate = document.getElementById("invoiceDateInput").value;
+    let field = serviceDate.split("-");
+    let year = field[0] % 1000;
+    let month = field[1];
+    let day = field[2];
+    let invoiceDateString = month + "/" + day + "/" + year;
+
+//    let invoiceDate = new Date(document.getElementById("invoiceDateInput").value);
+//    let invoiceDateString = (invoiceDate.getUTCMonth() + 1) + "/" + invoiceDate.getUTCDate() + "/" + invoiceDate.getUTCFullYear();
 
     pdf.text(invoiceDateString, 178 + iX, 2 + iY);
 
